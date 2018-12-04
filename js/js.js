@@ -288,7 +288,7 @@ function game() {
 };
 function draw() {
  ctx.drawImage(bg, 0, 0);
- alert( document.documentElement.clientHeight );
+ alert(documentElement.scrollHeigh);
 setTimeout(function rrr() {
 	game();;
 if (score<=3) setTimeout(rrr,18);
