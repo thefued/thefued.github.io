@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <meta http-equiv="X-UA-Compatible" content="ie=edge">
+ <title>Поймай морковку!</title>
+ <style type="text/css">
+   .img1 {
+   position: absolute;
+   }
+   .img2 {
+   position: absolute;
+   }
+   .img3 {
+   position: absolute;
+   }
+   .img4 {
+   position: absolute;
+   }
+   .canvas {
+   position: absolute;
+   left: 0px;
+   top: 0px;
+   }
+   .block1 { 
+    position: absolute;
+    top: 2px;
+	padding-left: 490px;
+    width: 200px; 
+    background: none;
+	text-align: right;
+	font-size: 60px;
+	font-stile: bold;
+	font-family: "Century Gothic";
+   }
+   .arrow1 {
+	left:30px;
+	top: 680px;
+    position: absolute;
+	width: 100px;
+	height: 100px;
+	border-radius: 10px;
+	background-color: red;
+    background-color: rgba(0, 250, 100, 0.5);
+	}
+   .arrow2 {
+	left: 580px;
+	top: 680px;
+    position: absolute;
+	width: 100px;
+	height: 100px;
+	border-radius: 10px;
+	background-color: red;
+    background-color: rgba(0, 250, 100, 0.5);
+	}
+   .arrow3 {
+	left:30px;
+	top: 570px;
+    position: absolute;
+	width: 100px;
+	height: 100px;
+	border-radius: 10px;
+	background-color: red;
+    background-color: rgba(0, 250, 100, 0.5);
+	}
+   .arrow4 {
+	left: 580px;
+	top: 570px;
+    position: absolute;
+	width: 100px;
+	height: 100px;
+	border-radius: 10px;
+	background-color: red;
+    background-color: rgba(0, 250, 100, 0.5);
+	}
+  </style> 
+</head>
+<body>
+<!--<div class="arrow2" onclick='arrow2'><div>
+ <div class="arrow3" onclick='arrow3'><div>
+ <div class="arrow4" onclick='arrow4'><div>-->
+ <canvas class="canvas" id="canvas"></canvas>
+ <div class="block1" id='score'></div>
+ <div class="arrow1" id='arrow1'><img class="img1" src="mat/images/arrow1.png"/></div>
+ <div class="arrow2" id='arrow2'><img class="img2" src="mat/images/arrow2.png"/></div>
+ <div class="arrow3" id='arrow3'><img class="img3" src="mat/images/arrow3.png"/></div>
+ <div class="arrow4" id='arrow4'><img class="img4" src="mat/images/arrow4.png"/></div>
+ <script src="js/jquery.min.js"></script>
+ <script src="js/jquery.tap.js"></script>
+ <script src="js/js.js"></script>
+</body>
+</html>
