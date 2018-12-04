@@ -31,10 +31,7 @@ m2.src = "mat/images/m2.png"; // Аналогично
 
 //fly.src = "audio/fly.mp3"; // Указание нужной записи
 //score_audio.src = "audio/score.mp3"; // Аналогично
-function draw() {
- ctx.drawImage(bg, 0, 0);
-}
-draw(); // Вызов функции из вне
+
 function zay(z) {
 	switch(z) {
   case 1:  // if (x === 'value1')
@@ -289,6 +286,9 @@ function game() {
 };
 	document.getElementById('score').innerHTML = score;
 };
+function draw() {
+ ctx.drawImage(bg, 0, 0);
+ alert( document.documentElement.clientHeight );
 setTimeout(function rrr() {
 	game();;
 if (score<=3) setTimeout(rrr,18);
@@ -302,4 +302,6 @@ if ((score>50)&&(score<=75)) setTimeout(rrr, 6);
 if ((score>75)&&(score<=100)) setTimeout(rrr, 5);
 if (score>100) setTimeout(rrr, 4);
     }
-	, 20);
+	, 20);1
+}
+draw(); // Вызов функции из вне
