@@ -1,6 +1,4 @@
 var cvs = document.getElementById("canvas");
-var w = window.innerWidth;
-var h = window.innerHeight;
 var ctx = cvs.getContext("2d");
 var zay1 = new Image();
 var zay2 = new Image();
@@ -35,16 +33,16 @@ m2.src = "mat/images/m2.png"; // Аналогично
 function zay(z) {
 	switch(z) {
   case 1:  // if (x === 'value1')
- ctx.drawImage(zay1, 175, 40);
+ ctx.drawImage(zay1, Math.round(175*w/720), Math.round(40*h/800), Math.round(351*w/720), Math.round(525*h/800) );
     break;
   case 2:  // if (x === 'value2')
- ctx.drawImage(zay2, 175, 40);
+ ctx.drawImage(zay2, Math.round(175*w/720), Math.round(40*h/800), Math.round(351*w/720), Math.round(525*h/800));
     break;
   case 3:  // if (x === 'value2')
- ctx.drawImage(zay3, 175, 40);
+ ctx.drawImage(zay3, Math.round(175*w/720), Math.round(40*h/800), Math.round(374*w/720), Math.round(533*h/800));
     break;
   case 4:  // if (x === 'value2')
- ctx.drawImage(zay4, 175, 40);
+ ctx.drawImage(zay4, Math.round(175*w/720), Math.round(40*h/800), Math.round(374*w/720), Math.round(533*h/800));
     break;
 };
 };
@@ -154,9 +152,28 @@ function clack() {
 alert("hi");
 }
 function game() {
- ctx.drawImage(bg, 0, 0)
+ if ( document.documentElement.clientHeight<document.documentElement.clientWidth )
+ {
+	 h=document.documentElement.clientHeight;
+	 w=(Math.round((720*h)/800));
+	 canvas.height=ctx.height=h;
+	 canvas.width=ctx.width=w;
+	 } else
+{
+	 w=document.documentElement.clientWidth;
+	 ctx.height=h=(Math.round((800*w)/720));
+	 canvas.width=ctx.width=w;
+	 canvas.height=ctx.height=h;
+ };
+	 $(".arrow").width(100*w/720);
+	 $(".arrow").height(100*h/800);
+	 $("#arrow1").offset({top:(680*h/800), left:(30*w/720) });
+	 $("#arrow2").offset({top:(680*h/800), left:(580*w/720) });
+	 $("#arrow3").offset({top:(570*h/800), left:(30*w/720) });
+	 $("#arrow4").offset({top:(570*h/800), left:(580*w/720) });
+ ctx.drawImage(bg, 0, 0, w, h);
  zay(hh);
- if (louse) ctx.drawImage(lose, 70, 80);
+ if (louse) ctx.drawImage(lose, Math.round(70*w/720), Math.round(70*h/800), Math.round(590*w/720), Math.round(232*h/800) );
  if (kol>0) 
  {
   for (var i = 0; i < 12; i++) {
@@ -166,7 +183,7 @@ function game() {
 		{
 		 case 1: 
 		 {
-		    if (mor[i][2]>100) 
+		    if (mor[i][2]>Math.round(100*w/720)) 
 			{
 				anglem[1]=anglem[1]+0.5;
 			    mor[i][2]=mor[i][2]+1;
@@ -178,13 +195,13 @@ function game() {
 			{
 			mor[i][2]=mor[i][2]+1;
 			mor[i][3]=mor[i][3]+0.2;
-			ctx. drawImage(m1, mor[i][2], mor[i][3]); 
+			ctx. drawImage(m1, mor[i][2], mor[i][3], Math.round(128*w/720), Math.round(67*h/800) ); 
 			}
 		 }
 		 break;
 		 case 2: 
 		 {
-		    if (mor[i][2]<500) 
+		    if (mor[i][2]<Math.round(500*w/720)) 
 			{
 				anglem[2]=anglem[2]+0.5;
 			    mor[i][2]=mor[i][2]-1;
@@ -196,13 +213,13 @@ function game() {
 			{
 			mor[i][2]=mor[i][2]-1;
 			mor[i][3]=mor[i][3]+0.2;
-			ctx. drawImage(m2, mor[i][2], mor[i][3]);
+			ctx. drawImage(m2, mor[i][2], mor[i][3], Math.round(128*w/720), Math.round(67*h/800) );
 			}
 		 }
 		 break;
 		 case 3: 
 		 {
-		    if (mor[i][2]>100) 
+		    if (mor[i][2]>Math.round(100*w/720)) 
 			{
 				anglem[3]=anglem[3]+0.5;
 			    mor[i][2]=mor[i][2]+1;
@@ -215,12 +232,12 @@ function game() {
 			{
 			mor[i][2]=mor[i][2]+1;
 			mor[i][3]=mor[i][3]+0.2;
-			ctx. drawImage(m1, mor[i][2], mor[i][3]);}
+			ctx. drawImage(m1, mor[i][2], mor[i][3], Math.round(128*w/720), Math.round(67*h/800) );}
 		 }
 		 break;
 		 case 4: 
 		 {
-		    if (mor[i][2]<500) 
+		    if (mor[i][2]<Math.round(500*w/720)) 
 			{
 				anglem[4]=anglem[4]+0.5;
 			    mor[i][2]=mor[i][2]-1;
@@ -232,7 +249,7 @@ function game() {
 			{
 			mor[i][2]=mor[i][2]-1;
 			mor[i][3]=mor[i][3]+0.2;
-			ctx. drawImage(m2, mor[i][2], mor[i][3]);}
+			ctx. drawImage(m2, mor[i][2], mor[i][3], Math.round(128*w/720), Math.round(67*h/800) );}
 		 }
 		 break;
 		}	
@@ -251,33 +268,33 @@ function game() {
 	switch (mor[i][1]) {
 		case 1:
 		{
-			mor[i][2] = -100;
-			mor[i][3] = 315;
-			ctx. drawImage(m1, mor[i][2], mor[i][3]);
+			mor[i][2] = Math.round(-100*w/720);
+			mor[i][3] = Math.round(315*h/800);
+			ctx. drawImage(m1, mor[i][2], mor[i][3], Math.round(128*w/720), Math.round(67*h/800) );
 			
 		}
 		break;
 		case 2: 
 		{   
-			mor[i][2] = 680;
-			mor[i][3] = 315;
-			ctx. drawImage(m2, mor[i][2], mor[i][3]);
+			mor[i][2] = Math.round(w*680/720);
+			mor[i][3] = Math.round(h*315/800);
+			ctx. drawImage(m2, mor[i][2], mor[i][3], Math.round(128*w/720), Math.round(67*h/800) );
 			
 		}
 		break;
 		case 3: 
 		{   
-		    mor[i][2] = -100;
-			mor[i][3] = 145;
-			ctx. drawImage(m1, mor[i][2], mor[i][3]);
+		    mor[i][2] = Math.round(w*(-100) /720);
+			mor[i][3] = Math.round(h*145/800);
+			ctx. drawImage(m1, mor[i][2], mor[i][3], Math.round(128*w/720), Math.round(67*h/800) );
 			
 		}
 		break;
 		case 4: 
 		{   
-			mor[i][2] = 680;
-			mor[i][3] = 145;
-			ctx. drawImage(m2, mor[i][2], mor[i][3]);
+			mor[i][2] = Math.round(w*680/720);
+			mor[i][3] = Math.round(h*145/800);
+			ctx. drawImage(m2, mor[i][2], mor[i][3], Math.round(128*w/720), Math.round(67*h/800) );
 			
 		}
 		break;
@@ -286,14 +303,22 @@ function game() {
 };
 	document.getElementById('score').innerHTML = score;
 };
-function draw() {
- ctx.drawImage(bg, 0, 0);
- alert( document.documentElement.clientHeight );
- alert( document.documentElement.clientWidth );
- alert( document.documentElement.scrollHeight );
- alert( document.documentElement.clientWidth );
-setTimeout(function rrr() {
-	game();;
+window.onload = function draw() {
+ alert( 'Click Ok' );
+ if ( document.documentElement.clientHeight<document.documentElement.clientWidth )
+ {
+	 h=document.documentElement.clientHeight;
+	 w=(Math.round((800*h)/720));
+	 canvas.height=ctx.height=h;
+	 canvas.width=ctx.width=w;
+	 } else
+{
+	 ctx.width=w=document.documentElement.clientWidth;
+	 ctx.height=h=(Math.round((720*w)/800));
+ };
+ ctx.drawImage(bg, 0, 0, w, h);
+ setTimeout(function rrr() {
+	game();
 if (score<=3) setTimeout(rrr,18);
 if ((score>3)&&(score<=6)) setTimeout(rrr, 15);
 if ((score>6)&&(score<=10)) setTimeout(rrr, 13);
@@ -306,5 +331,14 @@ if ((score>75)&&(score<=100)) setTimeout(rrr, 5);
 if (score>100) setTimeout(rrr, 4);
     }
 	, 20);1
-}
-draw(); // Вызов функции из вне
+};
+// Вызов функции из вне
+//if( document.documentElement.clientHeight<document.documentElement.clientWidth )
+// {
+//	 canvas.height=ctx.height=h=document.documentElement.clientHeight;
+//	 canvas.width=ctx.width=w=(Math.round((800*h)/720)-10);
+//	 } else
+//{
+//	 ctx.width=w=document.documentElement.clientWidth;
+//	 ctx.height=h=(Math.round((720*w)/800));
+ //};
