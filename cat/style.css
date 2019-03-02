@@ -61,7 +61,7 @@ body {
 	-webkit-mask: url('mask.svg');
 	height: 468px;
 	background-color: #f2f2f2;
-	background-image: url('img/photo.png');
+	background-image: url('img/Photo.png');
 	background-repeat: no-repeat;
 	background-position: 40% 200px;
 	border: 6px solid #1698d9;
