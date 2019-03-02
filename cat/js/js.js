@@ -19,15 +19,16 @@ function clack(elem) {
 	$(elem).addClass('item-def');
 	$(elem).removeClass('item-chek');
 	$(elem).removeClass('cheked');
-	if (elem.className=='item item-pos item-def') { 
+	if (elem.className=='item item-pos item-def') {
 	$(elem).parent().find('.item-title').html('Чего сидишь? Порадуй котэ, <a href="#" onclick="clacka(this)">купи</a>');
 	}
 	}
    }
 }
-function clacka(elem) {
+function clacka(event, elem) {
    if(elem)
    {
+	event.preventDefault();
 	$(elem).parent().parent().find('.item.item-pos.item-def').addClass('item-chek');
 	$(elem).parent().parent().find('.item.item-pos.item-def.item-chek').removeClass('item-def');
 	switch ($(elem).parent().parent().attr('id')) {
