@@ -19,7 +19,9 @@ function clack(elem) {
 	$(elem).addClass('item-def');
 	$(elem).removeClass('item-chek');
 	$(elem).removeClass('cheked');
+	if (elem.className=='item item-pos item-def') { 
 	$(elem).parent().find('.item-title').html('Чего сидишь? Порадуй котэ, <a href="#" onclick="clacka(this)">купи</a>');
+	}
 	}
    }
 }
