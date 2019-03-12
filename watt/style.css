@@ -248,7 +248,7 @@ header {
 	grid-template-columns: auto;
 	grid-template-rows: auto auto auto auto auto auto;
 	grid-row-gap: 5px;
-	height: 0vh;
+	height: 60vh;
 	transition: 0.2s ease-in;
 }
 .menu-item {
@@ -289,6 +289,5 @@ header {
 }
 .menu.view {
 	display: grid;
-	height: 60vh;
 }
 }
