@@ -244,7 +244,7 @@ header {
 	padding-left: 0px;
 	line-height: 17px;
 	letter-spacing: 0.04em;
-	display: grid;
+	display: none;
 	grid-template-columns: auto;
 	grid-template-rows: auto auto auto auto auto auto;
 	grid-row-gap: 5px;
