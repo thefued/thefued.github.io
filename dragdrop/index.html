@@ -22,7 +22,7 @@ I am images up	loader
 		<span id="upload-file-text">Select Files</span>
 		</label>
 		</div>
-<br/>Maximum upload file size: 32MB.
+<br/>Maximum upload file size: 3.2MB.
 		<div class="progress-bar">
 			<div class="progress" id="progress-bar">
 				<span class="progress__text">ГОТОВО</span></div>
@@ -62,6 +62,9 @@ I am images up	loader
 			$('.upload-panel').css('background-color', 'white');
 			$(".progress-bar").css({
 				'display' : 'block'
+			}, 500);
+			$(".progress__text").css({
+				'opacity' : '1'
 			}, 500);
 			itemnumber += i;
 			
