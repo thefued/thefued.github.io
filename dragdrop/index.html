@@ -23,7 +23,11 @@ I am images up	loader
 		</label>
 		</div>
 <br/>Maximum upload file size: 3.2MB.
+		<div class="progress-bar">
+			<div class="progress" id="progress-bar">ГОТОВО</div>
 		<input type="submit" name="submit" id="submit-file" class="button upload-panel__submit" value='Sale Soul'>
+		</div>
+
 	</form>
 	<script>
 		/**ФАЙЛЫ ЗАГРУЖЕНЫ В ФОРМУ**/
@@ -32,7 +36,7 @@ I am images up	loader
   		var dropElem = [];
 		function upLoad(arr) {
   			for (var i = 0; i < (arr.length) ; i++) {
-  			if (( size+arr[i].size ) > 3200000) { 
+  			if (( size+arr[i].size ) > 320000000) { 
   			alert ('Максимальный размер загружаемых файлов: 3.2 Мб!!!');
 			break;
 			}
@@ -55,7 +59,7 @@ I am images up	loader
 				'font-size' : '120px'
 			}, 500);
 			$('.upload-panel').css('background-color', 'white');
-			$(".upload-panel__submit").css({
+			$(".progress-bar").css({
 				'display' : 'block'
 			}, 500);
 			itemnumber += i;
@@ -64,18 +68,56 @@ I am images up	loader
 		} 
 		/**ФАЙЛЫ ОТПРАВЛЕНЫ**/
 		function submitFiles(arr) {
-			([...arr]).forEach(uploadFile);
-			function uploadFile(file) {
-			let url = '//thefued.github.io/dragdrop/upload-image/';
-			let formData = new FormData();
-    		formData.append('file', file)
-   			fetch(url, {
-    			method: 'POST',
-    			body: formData
+			for (var i = 0; i < (arr.length) ; i++) uploadFile(arr[i], i);
+			let uploadProgress = [];
+			let progressBar = document.getElementById('progress-bar');
+
+			function initializeProgress(numFiles) {
+  			progressBar.style.width = '0' + '%';
+  			uploadProgress = []
+
+  			for(let i = numFiles; i > 0; i--) {
+    			uploadProgress.push(0)
+ 			 }
+			}
+
+			function updateProgress(fileNumber, percent) {
+ 				 uploadProgress[fileNumber] = percent
+  				let total = uploadProgress.reduce((tot, curr) => tot + curr, 0) / uploadProgress.length
+  				console.debug('update', fileNumber, percent, total)
+  				progressBar.style.width = total + '%';
+			}
+  			initializeProgress(arr.length);
+
+			function uploadFile(file, i) {
+			let url = 'https://api.cloudinary.com/v1_1/dvlcsnawc/image/upload/';
+			var xhr = new XMLHttpRequest()
+ 			var formData = new FormData()
+  			xhr.open('POST', url, true);
+ 			xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+
+ 
+  			xhr.upload.addEventListener("progress", function(e) {
+    			updateProgress(i, (e.loaded * 100.0 / e.total) || 100)
   			})
-  			.then(() => { alert('gotovo'); })
-  			.catch(() => { alert('oishbka'); })
-  			}
+  			xhr.addEventListener('readystatechange', function(e) {
+  			updateProgress(i, 100); 
+      		let done = document.createElement('i');
+  			done.className = 'item__done fa fa-check fa-2x';
+  			document.getElementById('item_' + (i+1)).appendChild(done);
+  			$(done).stop().animate({
+				'opacity' : '1'
+			}, 500);
+    		if (xhr.readyState == 4 && xhr.status == 200) {
+    		}
+    		else if (xhr.readyState == 4 && xhr.status != 200) {
+    		}
+  			})
+ 			formData.append('upload_preset', 'kfsly7z0');
+  			formData.append('file', file);
+  			xhr.send(formData);
+			}
+  			
 		}
 		/**ЗАГРУЗКА ФАЙЛОВ ЧЕРЕЗ КНОПКУ**/
 		document.getElementById('upload-file').onchange = function () {
@@ -149,6 +191,7 @@ I am images up	loader
   			titleitem.className = 'item__name';
   			titleitem.innerHTML = file.name;
   			document.getElementById('item_'+item).appendChild(titleitem);
+
 
 			dropElem[item] = document.getElementById('item_'+ item );
 			dropElem[item].number=item;
