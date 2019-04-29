@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<title>
+I am images up	loader
+</title>
+<link href="reset.css" rel="stylesheet">
+<link href="style.css" rel="stylesheet">
+<link href="font-awesome/css/font-awesome.css" rel="stylesheet">
+<script type="text/javascript" src="js/jquery.js"></script>
+<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></head>
+<body class="page">
+	<form class="page__upload-panel upload-panel"  id="upload-panel" enctype="multipart/form-data" method="post">
+		<h1 class="upload-panel__title">
+			Drop files anywhere to upload
+		</h1>
+		or<br/>
+		<div class="upload-panel__button button">
+		<label>
+		<input type="file" name="file" id="upload-file" multiple>
+		<span id="upload-file-text">Select Files</span>
+		</label>
+		</div>
+<br/>Maximum upload file size: 3.2MB.
+		<input type="submit" name="submit" id="submit-file" class="button upload-panel__submit" value='Sale Soul'>
+	</form>
+	<script>
+		/**ФАЙЛЫ ЗАГРУЖЕНЫ В ФОРМУ**/
+		var size = 0;
+		var itemnumber = 0;
+  		var dropElem = [];
+		function upLoad(arr) {
+  			for (var i = 0; i < (arr.length) ; i++) {
+  			if (( size+arr[i].size ) > 3200000) { 
+  			alert ('Максимальный размер загружаемых файлов: 3.2 Мб!!!');
+			break;
+			}
+			size += arr[i].size;
+			previewFile(arr[i], i+1);
+			
+		}
+
+			document.getElementById('upload-file-text').innerHTML = '+<span style="line-height: 10%; font-weight: 400; font-size: 20%; text-align: center; color: #333333;"><br/>(' + (3.2 - Math.round(size/10000)/100).toFixed(2) + "mb)</span>";
+			$(".upload-panel__button").stop().animate({
+				'border-radius' : '100px',
+				'width' : '200px',
+				'height' : '200px'
+			}, 500);
+			$(".upload-panel__button label").stop().animate({
+				'border-radius' : '100px',
+				'padding-top' : '70px',
+				'font-weight' : '600',
+				'line-height' : '30px',
+				'font-size' : '120px'
+			}, 500);
+			$('.upload-panel').css('background-color', 'white');
+			$(".upload-panel__submit").css({
+				'display' : 'block'
+			}, 500);
+			itemnumber += i;
+			
+
+		} 
+		/**ФАЙЛЫ ОТПРАВЛЕНЫ**/
+		function submitFiles(arr) {
+			([...arr]).forEach(uploadFile);
+			function uploadFile(file) {
+			let url = '/upload-image/';
+			let formData = new FormData();
+    		formData.append('file', file)
+   			fetch(url, {
+    			method: 'POST',
+    			body: formData
+  			})
+  			.then(() => { alert('gotovo'); })
+  			.catch(() => { alert('oishbka'); })
+  			}
+		}
+		/**ЗАГРУЗКА ФАЙЛОВ ЧЕРЕЗ КНОПКУ**/
+		document.getElementById('upload-file').onchange = function () {
+		var arr = document.getElementById('upload-file').files;
+		upLoad(arr);
+		};
+		/**ОТПРАВЛЕНИЕ ФАЙЛОВ**/
+		document.getElementById('upload-panel').onsubmit = function () {
+		event.preventDefault();
+  		event.stopPropagation();
+		var arr = document.getElementById('upload-file').files;
+		submitFiles(arr);
+		};
+		/**ЗАГРУЗКА ФАЙЛОВ В ФОРМУ ЧЕРЕЗ МЫШЬ**/
+		var dropArea = document.getElementById('upload-panel')
+		;['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+  			dropArea.addEventListener(eventName, preventDefaults, false)
+				})
+		function preventDefaults (e) {
+  		e.preventDefault()
+  		e.stopPropagation()
+		}
+		;['dragenter', 'dragover'].forEach(eventName => {
+ 		 dropArea.addEventListener(eventName, highlight, false)
+		})
+		;['dragleave', 'drop'].forEach(eventName => {
+  		dropArea.addEventListener(eventName, unhighlight, false)
+		})
+		function highlight(e) {
+  		dropArea.classList.add('highlight')
+		}
+		function unhighlight(e) {
+  		dropArea.classList.remove('highlight')
+		}
+		dropArea.addEventListener('drop', handleDrop, false)
+
+		function handleDrop(e) {
+
+  			let dt = e.dataTransfer;
+  			let files = dt.files;
+  			upLoad(files);
+		}
+		function previewFile(file, i) {
+			let item = itemnumber + i;
+  			let reader = new FileReader()
+  			reader.readAsDataURL(file)
+ 			reader.onloadend = function() {
+  			let divitem = document.createElement('div');
+  			divitem.className = 'upload-files__item item';
+  			divitem.setAttribute('draggable', 'true');
+  			divitem.setAttribute('id', 'item_' + item );
+   			document.getElementById('files').insertBefore(divitem, document.getElementById('files').firstChild);
+
+   			let filetype = file.type.split('/');
+   			if (filetype[0]=='image') {
+  				let img = document.createElement('img');
+  				img.className = 'item__img';
+   				img.src = reader.result;
+   				document.getElementById('item_'+item).appendChild(img);
+   			} else {
+   				let fa = document.createElement('i');
+  				fa.className = 'item__fa fa fa-file-text fa-5x';
+   				document.getElementById('item_'+item).appendChild(fa);
+   			}
+
+   			let divup = document.createElement('div');
+  			divup.className = 'item__up';
+   			document.getElementById('item_'+item).appendChild(divup);
+
+  			let titleitem = document.createElement('h5');
+  			titleitem.className = 'item__name';
+  			titleitem.innerHTML = file.name;
+  			document.getElementById('item_'+item).appendChild(titleitem);
+
+			dropElem[item] = document.getElementById('item_'+ item );
+			dropElem[item].number=item;
+			['drag', 'dragend', 'dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+  			dropElem[item].addEventListener(eventName, preventDefaults, false)
+			});
+			$(dropElem[item]).css({
+					'width' : '0px',
+					});
+			$(dropElem[item]).stop().animate({
+					'width' : '200px',
+					}, 500);
+			function preventDefaults (e) {
+  				e.preventDefault()
+  				e.stopPropagation()
+			}
+				dropElem[item].addEventListener('dragstart', dragElemStart, false);
+				dropElem[item].addEventListener('dragenter', dragElemEnter, false);
+				dropElem[item].addEventListener('dragleave', dragElemLeave, false);
+				dropElem[item].addEventListener('dragover', dragElemOver, false);
+
+
+ 		 }
+		}
+
+	</script>
+	<div class="page__upload-files upload-files" id='files'>
+		
+	</div>
+	<script>
+		var q = false;
+		var idDragElem = null;
+		var idDragEnter = null;
+		var pX = null;
+		var pY = null;
+		var orient = 0;
+		
+		function dragElemStart(e) {
+			idDragElem = this.number;
+		}
+		function dragElemLeave(e) {
+		q = true;
+		}
+		function dragElemEnter(e) {
+			pX = event.clientX;
+			idDragEnter = this.number;
+			if (q && idDragEnter !== idDragElem) {
+				if (pX>(this.getBoundingClientRect().left+pageXOffset+100)) {
+					$(this).after(dropElem[idDragElem]);
+					$(dropElem[idDragElem]).stop().animate({
+					'width' : 'show',
+					}, 500);
+				}
+				else {
+					$(this).before(dropElem[idDragElem]);
+					$(dropElem[idDragElem]).stop().animate({
+					'width' : 'show',
+					}, 500);
+				}
+			}
+		}
+		function dragElemOver(e) {
+			pX = event.clientX;
+			if (q && idDragEnter !== idDragElem) {
+				if (pX<(this.getBoundingClientRect().left+pageXOffset+40)) {
+					$(this).before(dropElem[idDragElem]);
+					$(dropElem[idDragElem]).stop().animate({
+					'width' : 'show',
+					}, 200);
+				}
+				if ((pX>(this.getBoundingClientRect().left+pageXOffset+40))&&(pX<(this.getBoundingClientRect().left+pageXOffset+150))) {
+					$(dropElem[idDragElem]).stop().animate({
+					'width' : 'hide',
+					}, 200);
+				}
+				if (pX>(this.getBoundingClientRect().left+pageXOffset+150)) {
+					$(this).after(dropElem[idDragElem]);
+					$(dropElem[idDragElem]).stop().animate({
+					'width' : 'show',
+					}, 200);
+				}
+
+			}
+		}
+	</script>
+</body>
+</html>
