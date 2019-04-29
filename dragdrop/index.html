@@ -24,7 +24,8 @@ I am images up	loader
 		</div>
 <br/>Maximum upload file size: 3.2MB.
 		<div class="progress-bar">
-			<div class="progress" id="progress-bar">ГОТОВО</div>
+			<div class="progress" id="progress-bar">
+				<span class="progress__text">ГОТОВО</span></div>
 		<input type="submit" name="submit" id="submit-file" class="button upload-panel__submit" value='Sale Soul'>
 		</div>
 
@@ -36,8 +37,8 @@ I am images up	loader
   		var dropElem = [];
 		function upLoad(arr) {
   			for (var i = 0; i < (arr.length) ; i++) {
-  			if (( size+arr[i].size ) > 320000000) { 
-  			alert ('Максимальный размер загружаемых файлов: 3.2 Мб!!!');
+  			if (( size+arr[i].size ) > 32000000) { 
+  			alert ('Максимальный размер загружаемых файлов: 32 Мб!!!');
 			break;
 			}
 			size += arr[i].size;
@@ -45,7 +46,7 @@ I am images up	loader
 			
 		}
 
-			document.getElementById('upload-file-text').innerHTML = '+<span style="line-height: 10%; font-weight: 400; font-size: 20%; text-align: center; color: #333333;"><br/>(' + (3.2 - Math.round(size/10000)/100).toFixed(2) + "mb)</span>";
+			document.getElementById('upload-file-text').innerHTML = '+<span style="line-height: 10%; font-weight: 400; font-size: 20%; text-align: center; color: #333333;"><br/>(' + (32 - Math.round(size/10000)/100).toFixed(2) + "mb)</span>";
 			$(".upload-panel__button").stop().animate({
 				'border-radius' : '100px',
 				'width' : '200px',
