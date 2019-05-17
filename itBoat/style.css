@@ -104,6 +104,7 @@
   .header {
     height: 20px;
     position: fixed;
+    z-index: 99;
   }
 
   .menu {
