@@ -102,6 +102,7 @@ $head_color: #255171;
 .header {
     height: 20px;
     position: fixed;
+    z-index: 99;
 }
 .menu {
     visibility: visible;
