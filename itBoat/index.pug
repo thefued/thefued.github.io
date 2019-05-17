@@ -1,0 +1,56 @@
+doctype
+html(lang="ru")
+    head
+    link(href="https://fonts.googleapis.com/css?family=Montserrat", rel="stylesheet")
+    link(href="style.css", rel="stylesheet")
+    script(type="text/javascript", src="js/jquery.js")
+    script(type="text/javascript", src="js/menu.js")
+    meta(name="viewport", content="width=device-width, height=device-height, initial-scale=1")
+    body.page
+        header.page__elem.header
+            nav.navigation
+                ul.navigation__menu.menu.menu-hidden
+                    li.menu__item
+                        a.menu__link(href="#") чартер
+                    li.menu__item
+                        a.menu__link(href="#") продажа
+                    li.menu__item
+                        a.menu__link(href="#") регионы
+                    li.menu__item
+                        a.menu__link(href="#") флот
+                    li.menu__item
+                        a.menu__link(href="#") журнал
+                    li.menu__item
+                        a.menu__link(href="#") верфи
+                    li.menu__item
+                        a.menu__link(href="#") дизайнеры
+                    li.menu__item.menu__item_search
+                        img.menu__search(src="img/search.svg", href="#")
+            div.nav-button
+                div.nav-button__line.nav-button__line_number_1 
+                div.nav-button__line.nav-button__line_number_2 
+                div.nav-button__line.nav-button__line_number_3
+        .market
+            h1.market__title.
+                Специальные предложения
+            .market__lr
+                .market__left.market__arrow &lt;
+                .market__right.market__arrow  &gt;
+            .market__production
+                -   var x = 8; 
+                ul.production
+                    -   for (var i=1; i<=x; i++) {
+                    li.production__item.product
+                        .product__image
+                        span.product__title 44 m Heesen AT Last
+                        span.product__subtitle 2001/REFIT 2015 &middot; 4 каюты
+                        span.product__old-price 15,750,000&nbsp;&nbsp;
+                        span.product__sale ДО 30 АПР.
+                        span.product__price.product__price-b <br>€ 9,750,000 
+                        span.product__price &nbsp;/ НЕДЕЛЯ
+                        .product__quest ?
+                    -   }
+            .market__scroll.scroll
+                .scroll__line
+            .market__button &bull;&bull;&bull; Все предложения
+                        
