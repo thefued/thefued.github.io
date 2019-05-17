@@ -22,7 +22,7 @@ $head_color: #255171;
 .menu {
     padding-top: 80px;
     padding-left: 0px;
-    width: 1280px;
+    width: 1260px;
     margin: auto;
     -webkit-display: flex;
 	-webkit-justify-content: space-between;
@@ -43,6 +43,9 @@ $head_color: #255171;
         justify-content: space-between;
         align-items: center; 
         height: 40px;
+        &:first-child {
+            margin-left: 0px;
+        }
     }
     &__link {
         text-decoration: none;
@@ -61,13 +64,14 @@ $head_color: #255171;
         border-bottom: 1px solid  white;
     }
     &__item_search {
+        align-items: flex-end;
         &:before {
             content: "";
             width: 40px;
             height: 40px;
             border-radius: 20px;
             margin-top: -12px;
-            margin-left: 1px;
+            margin-left: 8px;
             position: absolute;
             background-color: rgba(255, 255, 255, 0);
             transition: 0.3s ease;
@@ -86,7 +90,7 @@ $head_color: #255171;
 }
 @media screen and (max-width: 1280px) and (min-width: 768px) {
 .menu {
-    width: 100%;
+    width: 90%;
 }
 }
 @media screen and (max-width: 1070px) {
@@ -115,7 +119,7 @@ $head_color: #255171;
 	-webkit-align-items: flex-start;
 	flex-direction: column;
 	align-items: flex-start;
-	height: calc(95vh - 110px);
+	height: calc(92vh - 40px);
 	padding-top: 40px;
     padding-bottom: 8vh;
     transition: 0.3s ease-in;
@@ -172,7 +176,7 @@ $head_color: #255171;
 }
 }
 .market {
-    width: 1280px;
+    width: 1260px;
     margin: auto;
     padding-top: 100px;
 
@@ -268,11 +272,22 @@ $head_color: #255171;
     padding-bottom: 100px;
 }
 .product {
+    color: black;
+    overflow: hidden;
     flex-shrink: 0;
     display: inline-block;
     margin-right: 14px;
     width: 306px;
     height: 100%;
+    box-sizing: border-box;
+    transition: 0.3s ease;
+    cursor: pointer;
+    &:hover &__image {
+        box-shadow: 0px 0px 30px 1px #000033 inset;
+    }
+    &:hover &__title {
+        text-decoration: underline;
+    }
     &__image {
         display: block;
         height: 219px;
@@ -301,6 +316,7 @@ $head_color: #255171;
         line-height: 17px;
     }
     &__sale {
+        overflow: hidden;
         font-size: 11px;
         height: 20px;
         display: inline-block;

@@ -24,7 +24,7 @@
 .menu {
   padding-top: 80px;
   padding-left: 0px;
-  width: 1280px;
+  width: 1260px;
   margin: auto;
   -webkit-display: flex;
   -webkit-justify-content: space-between;
@@ -47,6 +47,9 @@
   align-items: center;
   height: 40px;
 }
+.menu__item:first-child {
+  margin-left: 0px;
+}
 .menu__link {
   text-decoration: none;
   color: white;
@@ -63,13 +66,16 @@
   width: 100%;
   border-bottom: 1px solid white;
 }
+.menu__item_search {
+  align-items: flex-end;
+}
 .menu__item_search:before {
   content: "";
   width: 40px;
   height: 40px;
   border-radius: 20px;
   margin-top: -12px;
-  margin-left: 1px;
+  margin-left: 8px;
   position: absolute;
   background-color: rgba(255, 255, 255, 0);
   transition: 0.3s ease;
@@ -87,7 +93,7 @@
 
 @media screen and (max-width: 1280px) and (min-width: 768px) {
   .menu {
-    width: 100%;
+    width: 90%;
   }
 }
 @media screen and (max-width: 1070px) {
@@ -118,7 +124,7 @@
     -webkit-align-items: flex-start;
     flex-direction: column;
     align-items: flex-start;
-    height: calc(95vh - 110px);
+    height: calc(92vh - 40px);
     padding-top: 40px;
     padding-bottom: 8vh;
     transition: 0.3s ease-in;
@@ -175,7 +181,7 @@
   }
 }
 .market {
-  width: 1280px;
+  width: 1260px;
   margin: auto;
   padding-top: 100px;
 }
@@ -272,11 +278,22 @@
 }
 
 .product {
+  color: black;
+  overflow: hidden;
   flex-shrink: 0;
   display: inline-block;
   margin-right: 14px;
   width: 306px;
   height: 100%;
+  box-sizing: border-box;
+  transition: 0.3s ease;
+  cursor: pointer;
+}
+.product:hover .product__image {
+  box-shadow: 0px 0px 30px 1px #000033 inset;
+}
+.product:hover .product__title {
+  text-decoration: underline;
 }
 .product__image {
   display: block;
@@ -306,6 +323,7 @@
   line-height: 17px;
 }
 .product__sale {
+  overflow: hidden;
   font-size: 11px;
   height: 20px;
   display: inline-block;

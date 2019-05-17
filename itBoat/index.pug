@@ -6,6 +6,7 @@ html(lang="ru")
     script(type="text/javascript", src="js/jquery.js")
     script(type="text/javascript", src="js/menu.js")
     meta(name="viewport", content="width=device-width, height=device-height, initial-scale=1")
+    meta(http-equiv="Content-Type", content="text/html; charset=UTF-8")
     body.page
         header.page__elem.header
             nav.navigation
@@ -40,7 +41,8 @@ html(lang="ru")
                 -   var x = 8; 
                 ul.production
                     -   for (var i=1; i<=x; i++) {
-                    li.production__item.product
+                    a(href="#")
+                      li.production__item.product
                         .product__image
                         span.product__title 44 m Heesen AT Last
                         span.product__subtitle 2001/REFIT 2015 &middot; 4 каюты
