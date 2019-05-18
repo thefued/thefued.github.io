@@ -251,6 +251,9 @@ html, body, ul, li, a, h1, h2, h3, p {
     height: 20vw;
     margin-bottom: 5vw;
   }
+.banner__play {
+    top: 100vw;
+}
 }
 
 /*# sourceMappingURL=style.css.map */
