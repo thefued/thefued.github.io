@@ -1,0 +1,174 @@
+@keyframes transp {   
+    0% {     
+      color: white;
+      text-shadow: 0px 0px 4px #fff;
+    }   
+    20% {     
+      color: green;   
+      text-shadow: 0px 0px 4px green;
+    } 
+    100% {
+      color: transparent;
+     }
+  }
+  @keyframes transpp {   
+    0% {     
+      color: white;
+    }   
+    20% {     
+      color: green;   
+    } 
+    50% {
+      color: transparent;
+     }
+    55% {
+      color: transparent;
+     }
+    56% {
+      color: white;
+     }
+    61% {
+      color: white;
+     }
+    62% {
+      color: transparent;
+     }
+    66% {
+      color: transparent;
+     }
+    100% {     
+      color: white;   
+    } 
+  }
+  @keyframes matrix-anim {   
+    0% {     
+      filter: blur(20px) brightness(1);
+    }  
+    30% {
+      filter: blur(0px) brightness(1);
+    }
+    45% {     
+      filter: blur(0px) brightness(1);
+    } 
+    48% {     
+      filter: blur(10px) brightness(1.3);
+    } 
+    50% {     
+      filter: blur(0px) brightness(1);
+    } 
+    52% {     
+      filter: blur(10px) brightness(1.3);
+    } 
+    53% {     
+      filter: blur(10px) brightness(1.3);
+    } 
+    73% {     
+      filter: blur(0px) brightness(1);
+    } 
+    74% {     
+      filter: blur(10px) brightness(1.3);
+    } 
+    76% {     
+      filter: blur(0px) brightness(1);
+    } 
+    77% {     
+      filter: blur(20px) brightness(1.3);
+    } 
+    100% {
+      filter: blur(0px) brightness(1);
+     }
+  }
+*  {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  text-transform: none;
+}
+html {
+  perspective: 500px;
+}
+.matrix-page {
+    background-color: #112;
+    perspective: 500px;
+    perspective-origin: 50% 50%;
+    filter: blur(0px);
+    backface-visibility: hidden;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    position: absolute;
+    z-index: 0;
+    -moz-transform: perspective(500px)  translate3d(0px, 0px, 0px) scale(-1, 1);
+    -webkit-transform: perspective(500px)  translate3d(0px, 0px, 0px) scale(-1, 1);
+    -o-transform: perspective(500px)  translate3d(0px, 0px, 0px) scale(-1, 1);
+    transform: perspective(500px)  translate3d(0px, 0px, 0px) scale(-1, 1);
+    filter: FlipH;
+    -ms-filter: "FlipH"; 
+    transition: 4s ease-in-out;
+    animation: matrix-anim 6s ease 0s 1;
+}
+.matrix-page__str {
+    transform-style: preserve-3d;
+    position: absolute;
+    top: 0px;
+    font-family: sans-serif;
+    width: 2vw;
+    font-size: 4vw;
+    line-height: 1;
+    text-align: center;
+    color: transparent;   
+}
+.str__let {
+    text-shadow: 0px 0px 4px transparent;
+    animation: transp 3s ease 2;
+}
+.str__lett {
+    text-shadow: 0px 0px 4px #112;
+    animation: transpp 2s ease 2;
+}
+.str__lett_ {
+    text-shadow: 0px 0px 4px #112;
+    animation: transpp 1s ease 11;
+}
+.view {
+  filter: blur(10px);
+  transition: 2s ease-in 1s;
+}
+.hello {
+  transform-style: preserve-3d;
+  perspective-origin: 100% 50%;
+  -moz-transform: perspective(500px) translate3d(0px, 0px, -100px) scale(-1, 1);
+  -webkit-transform: perspective(500px) translate3d(0px, 0px, -100px) scale(-1, 1);
+  -o-transform: perspective(500px) translate3d(0px, 0px, -100px) scale(-1, 1);
+  transform: perspective(500px) translate3d(0px, 0px, -100px) scale(-1, 1);
+  filter: FlipH;
+  -ms-filter: "FlipH"; 
+  z-index: 99;
+  position: relative;
+  font-family: sans-serif;
+  color: white;
+  transition: 4s ease-in-out;
+}
+.hello_up {
+  -moz-transform: perspective(500px) translate3d(0px, 0px, -200px) scale(-1, 1);
+  -webkit-transform: perspective(500px) translate3d(0px, 0px, -200px) scale(-1, 1);
+  -o-transform: perspective(500px) translate3d(0px, 0px, -200px) scale(-1, 1);
+  transform: perspective(500px) translate3d(0px, 0px, -200px) scale(-1, 1);
+}
+.matrix_up {
+  -moz-transform: perspective(500px)  translate3d(0px, 0px, 100px) scale(-1, 1);
+  -webkit-transform: perspective(500px)  translate3d(0px, 0px, 100px) scale(-1, 1);
+  -o-transform: perspective(500px)  translate3d(0px, 0px, 100px) scale(-1, 1);
+  transform: perspective(500px)  translate3d(0px, 0px, 100px) scale(-1, 1);
+}
+.hello__title {
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 6vw;
+  padding-top: 10vh;
+}
+.title__let {
+  text-transform: uppercase;
+  color: transparent;
+  filter: blur(1px);
+}
