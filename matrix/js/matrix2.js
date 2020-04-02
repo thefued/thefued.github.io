@@ -62,42 +62,37 @@ window.onload = function() {
          } else {
              ii=i;
          }
-        zin=randomInt(-30000);
-        $("#str1").clone() 
-            .attr('id', 'str'+ii)
-            .css({
-                left: ''+ (0+randomInt(80)) + 'vw'
-            })
-            .appendTo(".matrix-page")
-            .addClass('str_min_'+ii);
-    }
-    zin=randomInt(-30000);
-    $("#str1").css({
-                left: ''+ (30+randomInt(20)) + 'vw'
-            })
-            .attr('id', 'str01')
-            .addClass('str_min_01');
-    sorry = 0;
+        }
+    var sorry = 0;
     setTimeout(function addWord() {
-        strI=randomInt(50);
+        strI=randomInt(49)+1;
         if (strI<10) strI='0'+strI;
-        $(".str_min_"+strI).addClass('str_zoom_'+strI);
-        if ($('#str'+strI+' span:last-child').attr('id')==undefined) {
-        index = 1;
-        sorry += 1;
-        addLet(strI, index);
-        console.log(sorry);
+        if (($(".strc_min_"+strI).attr('class')==('matrix-page__str str strc_min_'+strI))) {
+            index = 1;
+            sorry += 1;
+            $(".strc_min_"+strI).addClass('str_zoom_'+strI);
+            addLetC(strI, index);
         }
-        else {
-            index = (''+$('#str'+strI+' span:last-child').attr('id'));
-            index = +(/\d{1,}$/.exec(index));
+        if (($(".str_min_"+strI).attr('class')==('matrix-page__str str str_min_'+strI))) {
+            index = 1;
+            sorry += 1;
+            $(".str_min_"+strI).clone()
+                .attr('id', 'strc'+strI)
+                .addClass('strc_min_'+strI)
+                .removeClass('str_min_'+strI)
+                .appendTo(".matrix-page");
+            $(".str_min_"+strI).addClass('str_zoom_'+strI);
+            addLet(strI, index);
         }
-        if (sorry < 51) {
-            setTimeout(addWord, 70);
-        }
+       
+        if (sorry<100) setTimeout(addWord, 700);
       }, 100);
+      for (let strI = 1; strI < 51; strI++) {
+        if (strI<10) strI='0'+strI;
+        
+      }
     function addLet(k, idd) {
-            $('#str'+k).append("<span class='str__let' id=" + k + "_" + idd + ">"+katakana[randomInt(40)]+'</span>');
+        $(".str_min_" + k).find('#'+k+'_'+idd).addClass('str__let');
             idd = idd + 1;
             if (idd<15) {
             setTimeout(function () {
@@ -111,8 +106,40 @@ window.onload = function() {
             }, 1500);
             setTimeout(function () {
             $('#'+k+'_'+idd).html(katakana[randomInt(40)]);
-            }, 2000);
+            }, 3000);
             setTimeout(addLet, 70, k, idd);
+            }
+            else {
+                setTimeout(() => {
+                    var elem = document.getElementsByClassName("str_min_"+k);
+                    elem[0].parentNode.removeChild(elem[0]);
+                }, 2700);
+            }
+          };
+    function addLetC(k, idd) {
+        $(".strc_min_"+k).find('#'+k+'_'+idd).addClass('str__let');
+            idd = idd + 1;
+            if (idd<15) {
+            setTimeout(function () {
+            $('#'+k+'_'+idd).html(katakana[randomInt(40)]);
+            }, 500);
+            setTimeout(function () {
+            $('#'+k+'_'+idd).html(katakana[randomInt(40)]);
+            }, 1000);
+            setTimeout(function () {
+            $('#'+k+'_'+idd).html(katakana[randomInt(40)]);
+            }, 1500);
+            setTimeout(function () {
+            $('#'+k+'_'+idd).html(katakana[randomInt(40)]);
+            }, 3000);
+            setTimeout(addLetC, 70, k, idd);
+            }
+            else {
+
+                setTimeout(() => {
+                    var elem = document.getElementsByClassName("strc_min_"+k);
+                    elem[0].parentNode.removeChild(elem[0]);
+                }, 2700);
             }
           };
 /*
