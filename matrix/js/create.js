@@ -56,7 +56,8 @@ window.onload = function() {
         'バ',
         'コ'
     ]
-    for (var i = 2; i < 51; i++) {
+    kleft = 1;
+    for (var i = 2; i < 101; i++) {
         if (i<10) {
             ii = '0'+i;
          } else {
@@ -66,40 +67,39 @@ window.onload = function() {
         $("#str1").clone() 
             .attr('id', 'str'+ii)
             .css({
-                left: ''+ (0+randomInt(80)) + 'vw'
+                left: ''+ kleft + 'vw'
             })
             .appendTo(".matrix-page")
             .addClass('str_min_'+ii);
+        kleft=kleft+1;
     }
     zin=randomInt(-30000);
     $("#str1").css({
-                left: ''+ (30+randomInt(20)) + 'vw'
+                left: ''+ 0 + 'vw'
             })
             .attr('id', 'str01')
             .addClass('str_min_01');
     sorry = 0;
     setTimeout(function addWord() {
-        strI=randomInt(50);
+        strI=randomInt(99)+1;
         if (strI<10) strI='0'+strI;
-        $(".str_min_"+strI).addClass('str_zoom_'+strI);
         if ($('#str'+strI+' span:last-child').attr('id')==undefined) {
         index = 1;
         sorry += 1;
         addLet(strI, index);
-        console.log(sorry);
         }
         else {
             index = (''+$('#str'+strI+' span:last-child').attr('id'));
             index = +(/\d{1,}$/.exec(index));
         }
-        if (sorry < 51) {
+        if (sorry < 101) {
             setTimeout(addWord, 70);
         }
       }, 100);
     function addLet(k, idd) {
-            $('#str'+k).append("<span class='str__let' id=" + k + "_" + idd + ">"+katakana[randomInt(40)]+'</span>');
+            $('#str'+k).append("<span class='str' id=" + k + "_" + idd + ">"+katakana[randomInt(40)]+'</span>');
             idd = idd + 1;
-            if (idd<15) {
+            if (idd<50) {
             setTimeout(function () {
             $('#'+k+'_'+idd).html(katakana[randomInt(40)]);
             }, 500);
@@ -115,7 +115,7 @@ window.onload = function() {
             setTimeout(addLet, 70, k, idd);
             }
           };
-/*
+
     for (let index = 1; index < 51; index++) {
         if (index<10) {
             ii='0'+index;
@@ -123,8 +123,8 @@ window.onload = function() {
         else {
             ii = index;
         }
-        let kk=randomInt(10000);
-        console.log('.str_min_'+ ii + ' { transform: translate3d( 0, 0, -' + kk + 'px); transition: 16s ease-in; z-index: ' + (100 - Math.round(kk/100)) + ';}   .str_zoom_'+ ii +' { transform: translate3d( 0, 0, ' + (kk+20000) + 'px);}');
+        let kk=0-randomInt(5000);
+        console.log('.str_min_'+ ii + ' { transform: translate3d( 0, 0, ' + kk + 'px); transition: 16s ease-in;  filter: blur(0px); z-index: ' + (100-(0-Math.round(kk/50))) + ';}   .str_zoom_'+ ii +' { transform: translate3d( 0, 0, ' + (kk+10000) + 'px); filter: blur(10px);}');
     }
     /*
     setTimeout(function addWord() {
