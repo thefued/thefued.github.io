@@ -8,9 +8,11 @@
 
 .page {
   font-family: Montserrat, sans-serif;
-  height: 100vh;
+  min-height: 100vh;
+  height: 900px;
   width: 100vw;
-  overflow: hidden;
+  position: sticky;
+  top: 0px;
   background-image: url(../img/5.png);
   background-size: 300px;
   background-color: #ce9863;
@@ -76,7 +78,6 @@
 .content {
   box-shadow: inset 0px 0px 33.97px 9.03px rgba(0, 0, 0, 0.46);
   height: 100vh;
-  padding-top: 72px;
   overflow-y: scroll;
   position: relative; }
   .content__text {
