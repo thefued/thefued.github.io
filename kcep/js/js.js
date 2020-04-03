@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    $('.content').on('click', function() {
+    $('.page').on('click', function() {
         (function toggleFullScreen() {
             if (!document.fullscreenElement &&
                 !document.mozFullScreenElement && !document.webkitFullscreenElement && !document.msFullscreenElement ) {
