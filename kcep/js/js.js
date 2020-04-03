@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    $('.content').on('click', function() {
+    $('.header__item1').on('touchstart', function() {
         (function toggleFullScreen() {
             if (!document.fullscreenElement &&
                 !document.mozFullScreenElement && !document.webkitFullscreenElement && !document.msFullscreenElement ) {
@@ -32,8 +32,7 @@ $(document).ready(function() {
     $('.content').on('touchend', function() {
         scrolling = 2;
     });
-    $('.content').on('scroll', function(e) {
-        e.preventDefault();
+    $('.content').on('scroll', function() {
         if (scrolling==2) {
             if ($('.content').scrollTop()>($(window).innerHeight()/6)) {
                 $('.content').animate({
