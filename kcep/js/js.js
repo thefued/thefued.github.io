@@ -65,5 +65,15 @@ $(document).ready(function() {
     });
     $('.footer__item2').on('touchend', function(e) {
       $('.footer__item2').animate({'top': 0},500);
+      let timer=0;
+      (function kubrandom() {
+        setTimeout(() => {
+            $('.content__button > #kub_item').html(Math.floor(Math.random()*9));  
+            if (timer<50) {
+              timer++;
+              kubrandom();
+            }
+        }, timer*5);
+      })()
     });
 });
