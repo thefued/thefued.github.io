@@ -35,20 +35,17 @@ $(document).ready(function() {
         scrolend = 1;
     });
     $('.content').on('touchmove', function(e) {
-        if ((scrolmove == 0)||(scrolmove == 1)) {
-          scrollmove = 1;
-        } else {
-          e.preventDefault;
-          return false;
+        if ((scrolmove == 0)) {
+          scrolmove = 1;
         }
     });
     $('.content').on('scroll', function(e) {
-      if (scrollmove == 1) {
+      if (scrolmove == 1) {
             if ($('.content').scrollTop()>($(window).innerHeight()/6)) {
                 $('.content').animate({
                     scrollTop: $(window).innerHeight()
                 }, 700, 'swing');
-                scrollmove = 2;
+                scrolmove = 2;
                 $('.footer__item2').removeClass('button-disabled');
             } 
         } else {
