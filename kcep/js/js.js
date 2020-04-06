@@ -25,8 +25,12 @@ $(document).ready(function() {
             }
           })();
     });
-    var scrolend = 0;
-    var scrolmove = 0;
+
+    let scrolend = 0;
+    let scrolmove = 0;
+    let kub = [];
+
+
     $('.content').on('touchend', function() {
         scrolend = 1;
     });
@@ -42,8 +46,6 @@ $(document).ready(function() {
             } 
         scrolling = 0;
     })
-
-    let kub = [];
     $('.footer__item2').on('touchstart', function(e) {
       if (!document.getElementsByClassName('footer__item2')[0].classList.contains('button-disabled')) {
         console.log(document.getElementsByClassName('footer__item2')[0].classList.contains('button-disabled'));
@@ -71,23 +73,40 @@ $(document).ready(function() {
     }
     });
     $('.footer__item2').on('touchend', function(e) {
-      kub.item = Math.floor(Math.random()*9);
-      if (kub.clone == 2) {
-      $('.footer__item2').animate({'top': 0},300);
-      let timer=0;
-        (function kubrandom() {
-          setTimeout(() => {
-              $('#kub_item').html(timer%8);  
-              if (timer<38) {
-                $('.footer__item2').addClass('button-disabled');
-                timer++;
-                kubrandom();
+        kub.item = Math.floor(Math.random()*9);
+        $('.footer__item2').animate({'top': 0},300);
+        if (kub.clone == 2) {
+        let timer=0;
+          (function kubrandom() {
+            setTimeout(() => {
+              if (kub.end==undefined) {
+                $('#kub_item').html(timer%8);  
               } else {
-              $('#kub_item').html(kub.item); 
-              $('.footer__item2').removeClass('button-disabled'); 
+                $('#kub_item').html(kub.end + '+' + timer%8);  
               }
-          }, timer*6);
-        })()
-      }
+                if (timer<38) {
+                  timer++;
+                  kubrandom();
+                  if (timer == 10) {
+                      $('.footer__item2').addClass('button-disabled');
+                  }
+                } else {
+                  if (kub.end==undefined) {
+                      kub.end = kub.item;
+                      $('#kub_item').html(kub.end); 
+                      $('.footer__item2').removeClass('button-disabled');
+                  } else {
+                    $('#kub_item').html(kub.end + '+' + kub.item);
+                    setTimeout(() => {
+                      $('#kub_item').html('');
+                    }, 800);
+                    setTimeout(() => {
+                      $('#kub_item').html(kub.end + kub.item);
+                    }, 1000);
+                  } 
+                }
+            }, timer*6);
+          })()
+        }
     });
 });
