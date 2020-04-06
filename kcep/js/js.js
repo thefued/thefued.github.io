@@ -25,27 +25,22 @@ $(document).ready(function() {
             }
           })();
     });
-    var scrolling = 0;
-    $('.content').on('touchstart', function() {
-        scrolling = 1;
-    });
+    var scrolend = 0;
+    var scrolmove = 0;
     $('.content').on('touchend', function() {
-        scrolling = 2;
+        scrolend = 1;
+    });
+    $('.content').on('touchmove', function() {
+        scrolmove = 1;
     });
     $('.content').on('scroll', function() {
-        if (scrolling==2) {
+        if (scrolmove==1) {
             if ($('.content').scrollTop()>($(window).innerHeight()/6)) {
                 $('.content').animate({
                     scrollTop: $(window).innerHeight()
                 }, 700, 'swing');
                 $('.footer__item2').removeClass('button-disabled');
-            } else {
-                $('.content').animate({
-                    scrollTop: 0
-                }, 100, 'swing');
-                $('.footer__item2').addClass('button-disabled');
-            }
-        } else {
+            } 
         }
         scrolling = 0;
         console.log($('.content').scrollTop());
