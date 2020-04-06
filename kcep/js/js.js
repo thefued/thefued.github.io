@@ -34,9 +34,12 @@ $(document).ready(function() {
     $('.content').on('touchend', function() {
         scrolend = 1;
     });
-    $('.content').on('touchmove', function() {
-        if (scrolmove == 0) {
+    $('.content').on('touchmove', function(e) {
+        if ((scrolmove == 0)||(scrolmove == 1)) {
           scrollmove = 1;
+        } else {
+          e.preventDefault;
+          return false;
         }
     });
     $('.content').on('scroll', function(e) {
@@ -50,6 +53,7 @@ $(document).ready(function() {
             } 
         } else {
           e.preventDefault();
+          return false;
         }
         scrolling = 0;
     })
