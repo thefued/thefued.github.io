@@ -44,7 +44,7 @@ $(document).ready(function() {
     })
 
     let kub = [];
-    $('.footer__item2').on('touchstart', function() {
+    $('.footer__item2').on('touchstart', function(e) {
         kub.w = $('.footer__item2').width();
         kub.h = $('.footer__item2').height();
         kub.l = $('.footer__item2').offset().left;
@@ -59,12 +59,18 @@ $(document).ready(function() {
           'z-index': 99,
           'left': kub.l}));
         kub.clone = 1;
+        kub.y=e.changedTouches[0].screenY;
+        console.log(kub.y);
     });
-    $(document).mousemove(function(e) {
+    $('.footer').on('touchmove', function(e) {
+      e.preventDefault();
+      var touches = e.changedTouches;
+      for (var i = 0; i < touches.length; i++) {
       if (kub.clone == 1) {
-        cY = $(window).innerHeight()-e.pageY;
-        $('.footer__item2').css({'bottom': cY});
-        console.log(cY);
+        cY = kub.y-touches[i].screenY;
+        if (cY<0) (cY=0);
+        if (cY<kub.h) $('.footer__item2').css({'bottom': cY});
       }
+    }
     });
 });
