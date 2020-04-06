@@ -79,7 +79,8 @@
   padding-top: 72px;
   overflow-y: scroll;
   position: absolute;
-  top: 0px; }
+  top: 0px;
+  scroll-behavior: auto; }
   .content__text {
     padding: 20px;
     font-size: 20px;
