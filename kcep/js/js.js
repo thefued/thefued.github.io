@@ -35,15 +35,22 @@ $(document).ready(function() {
         scrolend = 1;
     });
     $('.content').on('touchmove', function() {
-        scrolmove = 1;
+        if (scrolmove == 0) {
+          scrollmove = 1;
+        }
     });
-    $('.content').on('scroll', function() {
+    $('.content').on('scroll', function(e) {
+      if (scrollmove == 1) {
             if ($('.content').scrollTop()>($(window).innerHeight()/6)) {
                 $('.content').animate({
                     scrollTop: $(window).innerHeight()
                 }, 700, 'swing');
+                scrollmove = 2;
                 $('.footer__item2').removeClass('button-disabled');
             } 
+        } else {
+          e.preventDefault();
+        }
         scrolling = 0;
     })
     $('.footer__item2').on('touchstart', function(e) {
