@@ -34,22 +34,37 @@ $(document).ready(function() {
         scrolmove = 1;
     });
     $('.content').on('scroll', function() {
-        if (scrolmove==1) {
             if ($('.content').scrollTop()>($(window).innerHeight()/6)) {
                 $('.content').animate({
                     scrollTop: $(window).innerHeight()
                 }, 700, 'swing');
                 $('.footer__item2').removeClass('button-disabled');
             } 
-        }
         scrolling = 0;
-        console.log($('.content').scrollTop());
     })
 
-    let kub = 0;
+    let kub = [];
     $('.footer__item2').on('touchstart', function() {
-        kub = 1;
-        console.log(kub);
+        kub.w = $('.footer__item2').width();
+        kub.h = $('.footer__item2').height();
+        kub.l = $('.footer__item2').offset().left;
+        let $elem = $('.footer__item2').clone();
+        $('.footer__item2').css({'opacity': 0});
+        $('.footer').before($elem.css({
+          'opacity': 1,
+          'height': kub.h,
+          'width': kub.w,
+          'bottom': '0px',
+          'position': 'absolute',
+          'z-index': 99,
+          'left': kub.l}));
+        kub.clone = 1;
     });
-
+    $(document).mousemove(function(e) {
+      if (kub.clone == 1) {
+        cY = $(window).innerHeight()-e.pageY;
+        $('.footer__item2').css({'bottom': cY});
+        console.log(cY);
+      }
+    });
 });
