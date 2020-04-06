@@ -45,18 +45,25 @@ $(document).ready(function() {
 
     let kub = [];
     $('.footer__item2').on('touchstart', function(e) {
+      if (!document.getElementsByClassName('footer__item2')[0].classList.contains('button-disabled')) {
+        console.log(document.getElementsByClassName('footer__item2')[0].classList.contains('button-disabled'));
         kub.w = $('.footer__item2').width();
         kub.h = $('.footer__item2').height();
         kub.l = $('.footer__item2').offset().left;
         kub.clone = 1;
         kub.y=e.changedTouches[0].screenY;
-        console.log(kub.y);
+      } else {
+        kub.clone = 0;
+        e.preventDefault();
+        return false;
+      }
     });
     $('.footer').on('touchmove', function(e) {
       e.preventDefault();
       var touches = e.changedTouches;
       for (var i = 0; i < touches.length; i++) {
-      if (kub.clone == 1) {
+      if ((kub.clone == 1)||(kub.clone == 2)) {
+        kub.clone = 2;
         cY = touches[i].screenY-kub.y;
         if (cY>0) (cY=0);
         if (cY<kub.h) $('.footer__item2').css({'top': cY});
@@ -64,16 +71,23 @@ $(document).ready(function() {
     }
     });
     $('.footer__item2').on('touchend', function(e) {
-      $('.footer__item2').animate({'top': 0},500);
+      kub.item = Math.floor(Math.random()*9);
+      if (kub.clone == 2) {
+      $('.footer__item2').animate({'top': 0},300);
       let timer=0;
-      (function kubrandom() {
-        setTimeout(() => {
-            $('.content__button > #kub_item').html(Math.floor(Math.random()*9));  
-            if (timer<50) {
-              timer++;
-              kubrandom();
-            }
-        }, timer*5);
-      })()
+        (function kubrandom() {
+          setTimeout(() => {
+              $('#kub_item').html(timer%8);  
+              if (timer<38) {
+                $('.footer__item2').addClass('button-disabled');
+                timer++;
+                kubrandom();
+              } else {
+              $('#kub_item').html(kub.item); 
+              $('.footer__item2').removeClass('button-disabled'); 
+              }
+          }, timer*6);
+        })()
+      }
     });
 });
