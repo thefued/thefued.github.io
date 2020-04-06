@@ -48,16 +48,6 @@ $(document).ready(function() {
         kub.w = $('.footer__item2').width();
         kub.h = $('.footer__item2').height();
         kub.l = $('.footer__item2').offset().left;
-        let $elem = $('.footer__item2').clone();
-        $('.footer__item2').css({'opacity': 0});
-        $('.footer').before($elem.css({
-          'opacity': 1,
-          'height': kub.h,
-          'width': kub.w,
-          'bottom': '0px',
-          'position': 'absolute',
-          'z-index': 99,
-          'left': kub.l}));
         kub.clone = 1;
         kub.y=e.changedTouches[0].screenY;
         console.log(kub.y);
@@ -67,10 +57,13 @@ $(document).ready(function() {
       var touches = e.changedTouches;
       for (var i = 0; i < touches.length; i++) {
       if (kub.clone == 1) {
-        cY = kub.y-touches[i].screenY;
-        if (cY<0) (cY=0);
-        if (cY<kub.h) $('.footer__item2').css({'bottom': cY});
+        cY = touches[i].screenY-kub.y;
+        if (cY>0) (cY=0);
+        if (cY<kub.h) $('.footer__item2').css({'top': cY});
       }
     }
+    });
+    $('.footer__item2').on('touchend', function(e) {
+      $('.footer__item2').animate({'top': 0},500);
     });
 });
