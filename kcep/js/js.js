@@ -28,9 +28,18 @@ $(document).ready(function() {
 
     let scrolend = 0;
     let scrolmove = 0;
+
+
     let kub = [];
+    let evilItem = 15;
+    let myDexterity = 9;
+    let myExtra = 9;
+    let myHealth= 24;
+
+    let enemyStatus = "extra";
 
 
+    $('.content__button').addClass('button-'+enemyStatus);
     $('.content').on('touchend', function() {
         scrolend = 1;
     });
@@ -47,6 +56,22 @@ $(document).ready(function() {
                 }, 700, 'swing');
                 scrolmove = 2;
                 $('.footer__item2').removeClass('button-disabled');
+                if (enemyStatus=='fight') {
+                  $('.header__item2').addClass('statusblock statusblock-left-fight');
+                  $('.header__item3').addClass('statusblock statusblock-right-fight');
+                  $('.footer__item2').addClass('button-fight');
+                  $('.header__item2>#evil-item').html(evilItem);
+                  $('.header__item3>#my-item').html(myHealth);
+                } else if (enemyStatus=='dext') {
+                  $('.header__item3').addClass('statusblock statusblock-right-dext');
+                  $('.footer__item2').addClass('button-dext');
+                  $('.header__item3>#my-item').html(myDexterity);
+                } else if (enemyStatus=='extra') {
+                  $('.header__item3').addClass('statusblock statusblock-right-extra');
+                  $('.footer__item2').addClass('button-extra');
+                  $('.header__item3>#my-item').html(myExtra);
+                }
+
             } 
         } else {
           e.preventDefault();
