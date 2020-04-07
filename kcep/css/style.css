@@ -47,7 +47,7 @@
 .header__item1 {
   background: url(../img/user.png) no-repeat;
   background-position: center;
-  background-size: 10vw; }
+  background-size: 8vw; }
 
 .header__item2 {
   background: url(../img/map.png) no-repeat;
@@ -55,7 +55,7 @@
   width: 130%;
   border-right: 2px solid white;
   border-left: 2px solid white;
-  background-size: 10vw; }
+  background-size: 14vw; }
 
 .header__item3 {
   background: url(../img/live.png) no-repeat;
@@ -68,7 +68,7 @@
     background: url(../img/user.png) no-repeat;
     background-position: center;
     background-color: #2c2c2c;
-    background-size: 10vw; }
+    background-size: 9vw; }
   .footer__item2 {
     background: url(../img/kub.png) no-repeat;
     background-position: center;
@@ -163,10 +163,12 @@
   .statusblock-left-fight {
     background-image: url(../img/evil.png);
     background-position: 40%;
+    background-size: 10vw;
     color: #c90000; }
   .statusblock-right-fight {
     background-image: url(../img/live.png);
     background-position: 40%;
+    background-size: 10vw;
     color: #FFF; }
   .statusblock-left-dext {
     background-image: none;
@@ -174,6 +176,7 @@
   .statusblock-right-dext {
     background-image: url(../img/dext.png);
     background-position: 40%;
+    background-size: 9vw;
     color: #FFF; }
   .statusblock-left-extra {
     background-image: none;
@@ -181,6 +184,7 @@
   .statusblock-right-extra {
     background-image: url(../img/ekstra.png);
     background-position: 40%;
+    background-size: 9vw;
     color: #FFF; }
   .statusblock__item {
     line-height: 20px;
