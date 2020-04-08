@@ -31,12 +31,75 @@ $(document).ready(function() {
 
 
     let kub = [];
-    let evilItem = 15;
     let myDexterity = 9;
     let myExtra = 9;
     let myHealth= 24;
+    let bufHealth= 24;
+    let minHealth = 6;
+    let enemyStatus = "fight";
+    let pageContent = "Вы продолжаете спускаться по коридору к правому повороту. Он перед вами. Неожиданно слышится громкий треск, и в коридоре появляется огромный жук. <br> Щёлкая ужасными роговыми челюстями, он движется по проходу, полностью перегораживая его. Как только вы поворачиваетесь, пытаясь убежать, с потолка перед вами опускается гигантская плита. Теперь пути назад у вас нет. Итак, вы в ловушке и должны сразиться со страшилищем.";
+    let pageSubs = "Бросьте игральную кость дважды.";
+    let enemyName = "Гигантский жук";
+    let link1 = '';
+    let link2 = '';
+    let enemyHealth = 13;
+    let pageWin = 153;
+    let pageLoose = 13;
+    let point = [];
+    point[0] = "death/Очки от 0 до 2: Вас хватают челюсти жука и откусывают вам голову. Здесь и заканчивается ваше приключение.";
+    point[1] = "death/Очки от 0 до 2: Вас хватают челюсти жука и откусывают вам голову. Здесь и заканчивается ваше приключение.";
+    point[2] = "death/Очки от 0 до 2: Вас хватают челюсти жука и откусывают вам голову. Здесь и заканчивается ваше приключение.";
+    point[3] = "-3/Очки от 3 до 6: Челюсти чудовища смыкаются на вашей левой руке. Вы теряете 3 пункта Силы.";
+    point[4] = "-3/Очки от 3 до 6: Челюсти чудовища смыкаются на вашей левой руке. Вы теряете 3 пункта Силы.";
+    point[5] = "-3/Очки от 3 до 6: Челюсти чудовища смыкаются на вашей левой руке. Вы теряете 3 пункта Силы.";
+    point[6] = "-3/Очки от 3 до 6: Челюсти чудовища смыкаются на вашей левой руке. Вы теряете 3 пункта Силы.";
+    point[7] = "+3/Очки от 7 до 12: Вы ранили жука. Он теряет 3 пункта Силы.";
+    point[8] = "+3/Очки от 7 до 12: Вы ранили жука. Он теряет 3 пункта Силы.";
+    point[9] = "+3/Очки от 7 до 12: Вы ранили жука. Он теряет 3 пункта Силы.";
+    point[10] = "+3/Очки от 7 до 12: Вы ранили жука. Он теряет 3 пункта Силы.";
+    point[11] = "+3/Очки от 7 до 12: Вы ранили жука. Он теряет 3 пункта Силы.";
+    point[12] = "+3/Очки от 7 до 12: Вы ранили жука. Он теряет 3 пункта Силы.";
+    point[13] = "health/ВОЛШЕБНОЕ КОЛЬЦО восстанавливает ваши Силы.";
+    
+    $('#my-item').html(bufHealth);
+    $('.content__text-full').html(pageContent);
+    $('.button_name').html(enemyName);
+    $('.content__text-bottom ').html(pageSubs);
 
-    let enemyStatus = "extra";
+    function fight(pointer, minHealth) {
+      let link;
+      if (point[pointer].split('/')[0] == 'death') {
+        bufHealth = 0;
+      } else if (point[pointer].split('/')[0] == 'health') {
+        bufHealth = myHealth;
+      } else if (point[pointer].split('/')[0] == 'win') {
+        enemyHealth = 0;
+      } else if (point[pointer].split('/')[0] == '-6') {
+        bufHealth = bufHealth-6;
+      } else if (point[pointer].split('/')[0] == '-3') {
+        bufHealth = bufHealth-3;
+      } else if (point[pointer].split('/')[0] == '+3') {
+        enemyHealth = enemyHealth-3;
+      }
+      $('.content__text-bottom ').html($('.content__text-bottom ').html() + '<br>' + point[pointer].split('/')[1]);
+      setTimeout(() => {
+        $('.header__item2>#evil-item').html(enemyHealth);
+        $('#my-item').html(bufHealth);
+      }, 500);
+      if (enemyHealth<=0) {
+        enemyHealth = 0;
+        link = "Вы побеждаете <br> <a class='content__navigation' href='" + pageWin + "'>Переход</a>";
+      }
+      if (bufHealth<=minHealth) {
+        link = "Вы Проигрываете <br> <a class='content__navigation' href='" + pageLoose + "'>Переход</a>";
+      }
+      if (link!=undefined) {
+      $('.content__text-bottom ').html($('.content__text-bottom ').html() + '<br>' + link);
+      return false;
+    }
+      
+    };
+
 
 
     $('.content__button').addClass('button-'+enemyStatus);
@@ -60,8 +123,8 @@ $(document).ready(function() {
                   $('.header__item2').addClass('statusblock statusblock-left-fight');
                   $('.header__item3').addClass('statusblock statusblock-right-fight');
                   $('.footer__item2').addClass('button-fight');
-                  $('.header__item2>#evil-item').html(evilItem);
-                  $('.header__item3>#my-item').html(myHealth);
+                  $('.header__item2>#evil-item').html(enemyHealth);
+                  $('.header__item3>#my-item').html(bufHealth);
                 } else if (enemyStatus=='dext') {
                   $('.header__item3').addClass('statusblock statusblock-right-dext');
                   $('.footer__item2').addClass('button-dext');
@@ -81,7 +144,6 @@ $(document).ready(function() {
     })
     $('.footer__item2').on('touchstart', function(e) {
       if (!document.getElementsByClassName('footer__item2')[0].classList.contains('button-disabled')) {
-        console.log(document.getElementsByClassName('footer__item2')[0].classList.contains('button-disabled'));
         kub.w = $('.footer__item2').width();
         kub.h = $('.footer__item2').height();
         kub.l = $('.footer__item2').offset().left;
@@ -106,16 +168,16 @@ $(document).ready(function() {
     }
     });
     $('.footer__item2').on('touchend', function(e) {
-        kub.item = Math.floor(Math.random()*9);
+        kub.item = Math.floor(Math.random()*8);
         $('.footer__item2').animate({'top': 0},300);
         if (kub.clone == 2) {
         let timer=0;
           (function kubrandom() {
             setTimeout(() => {
               if (kub.end==undefined) {
-                $('#kub_item').html(timer%8);  
+                $('#kub_item').html(timer%7);  
               } else {
-                $('#kub_item').html(kub.end + '+' + timer%8);  
+                $('#kub_item').html(kub.end + '+' + timer%7);  
               }
                 if (timer<38) {
                   timer++;
@@ -124,17 +186,36 @@ $(document).ready(function() {
                       $('.footer__item2').addClass('button-disabled');
                   }
                 } else {
-                  if (kub.end==undefined) {
+                  if ((kub.end==undefined)&&(kub.item != 7)) {
                       kub.end = kub.item;
                       $('#kub_item').html(kub.end); 
                       $('.footer__item2').removeClass('button-disabled');
-                  } else {
+                  } else if (kub.item == 7) {
+                    $('#kub_item').html('O').addClass('gold');
+                    setTimeout(() => {
+                      $('#kub_item').html('');
+                    }, 800);
+                    setTimeout(() => {
+                      $('#kub_item').html('O');
+                      if (fight(kub.end + kub.item, 0)!=false) {
+                        kub.end = undefined;
+                        kub.item = 0;
+                        $('.footer__item2').removeClass('button-disabled');
+                      };
+                    }, 1000);
+                  }
+                  else {
                     $('#kub_item').html(kub.end + '+' + kub.item);
                     setTimeout(() => {
                       $('#kub_item').html('');
                     }, 800);
                     setTimeout(() => {
                       $('#kub_item').html(kub.end + kub.item);
+                      if (fight(kub.end + kub.item, 0)!=false) {
+                        kub.end = undefined;
+                        kub.item = 0;
+                        $('.footer__item2').removeClass('button-disabled');
+                      };
                     }, 1000);
                   } 
                 }
