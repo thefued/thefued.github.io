@@ -121,23 +121,23 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 158px;
     height: 43px;
     position: relative;
-    left: calc(100% - 158px);
     margin: 10px 0px; }
 
 .button {
   display: flex;
   justify-content: space-between; }
-  .button-fight {
+  .button-fight, .button-test, .button-damage {
     background-color: #c90000; }
-  .button-path {
+  .button-path, .button-treatment {
     background-color: #00863a; }
   .button-extra {
     background-color: #179755; }
   .button-dext {
     background-color: #1767de; }
+  .button-game {
+    background-color: #ffcb2e; }
   .button_name {
     line-height: 20px;
     padding-bottom: 10px;
@@ -187,6 +187,11 @@
     background-position: 40%;
     background-size: 9vw;
     color: #FFF; }
+  .statusblock-right-game {
+    background-image: url(../img/money.png);
+    background-position: 20%;
+    background-size: 9vw;
+    color: #FFF; }
   .statusblock__item {
     line-height: 20px;
     position: absolute;
@@ -202,3 +207,16 @@
   color: gold;
   font-weight: bold;
   text-shadow: 0px 0px 10px gold, 1px 1px 2px black; }
+
+@media screen and (min-height: 800px) and (max-width: 414px) {
+  body {
+    background: #2c2c2c; }
+  .page {
+    height: 90vh; }
+  .content__text-full {
+    height: calc(90vh - 170px); }
+  .content__text-bottom {
+    height: calc(90vh - 40px); }
+  .footer {
+    bottom: calc(10vh - 2px);
+    border-bottom: 1px solid white; } }
