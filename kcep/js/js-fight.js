@@ -39,23 +39,18 @@ $(document).ready(function() {
     let myMoney = 30;
     let bufHealth= 22;
     let minHealth = 0;
-    let enemyStatus = "path";
-    let pageContent = "Вы бросаете серебряную гривну в медную чашу. Губы деревянного идола начинают шевелиться. Он говорит:<br>- Ты хочешь задать вопрос? Задавай, и я отвечу. Спрашивай, да будет мир с тобой.<br>Вот вопросы, которые можно задать Перуну:";
-    let pageSubs = "";
-    let enemyName = "Развилка";
-    let link1 = '7/(СТРАНИЦА БОЯ)Хотите спросить о старике, с которым путешествуете?Хотите и дальше следовать за ним?';
-    let link2 = '233/(ИСПЫТАНИЕ НА ЛОВКОСТЬ)Хотите спросить о Кощеевой Цепи?';
-    let link3 = '91/(ИСПЫТАНИЕ НА ЭКСТРАСЕНСОРНЫЕ)Хотите спросить о лучшей дороге к замку князя Кощея?';
-    let link4 = '6/(МАГАЗИН)Хотите спросить, в какое время дня удобнее войти в усыпальницу?';
-    let link5 = '92/(СТРАНИЦА ИГРЫ)Хотите спросить, что вам пригодится для успешного выполнения вашей миссии?';
-    let enemyHealth = '2';
+    let enemyStatus = "fight";
+    let pageContent = "Судьба сейчас благоприятствует вам. Вы избавились от одного из волков.";
+    let pageSubs = "Бросьте игральную кость дважды";
+    let enemyName = "ВОЛЧАРА";
+    let enemyHealth = '13';
     let pageWin = 146;
     let pageLoose = 13;
 
     let enemyD = "2/Вам перегрызли горло";
     let enemy2  = "4/4/Очки от 0 до 4: Вас укусили дважды";
     let enemy1 = "6/2/Очки от 5 до 6: Челюсти чудовища смыкаются на вашей левой руке. Вы теряете 2 пункта Силы.";
-    let enemy0 = "1/Очки от 7 до 12: Вы убили одного Волка";
+    let enemy0 = "1/Очки от 7 до 12: Вы РАНИЛИ Волка";
     let enemyR = "afterHealth/ВОЛШЕБНОЕ КОЛЬЦО восстановит Ваши силы если вы останетесь в живых";
     
 
@@ -335,15 +330,15 @@ function test(points) {
                   }
                 } 
                 if ((bufHealth>0)&&(link1!='')) {
-                  link = link1.split('/')[1] + "<br><a class='content__navigation' href='fight.html' id='" + link1.split('/')[0] + "'>Переход</a>";
+                  link = link1.split('/')[1] + "<br><a class='content__navigation' href='#' id='" + link1.split('/')[0] + "'>Переход</a>";
                   if (link2!='') {
-                    link = link + link2.split('/')[1] + "<br><a class='content__navigation' href='dext.html' id='" + link2.split('/')[0] + "'>Переход</a>";
+                    link = link + link2.split('/')[1] + "<br><a class='content__navigation' href='#' id='" + link2.split('/')[0] + "'>Переход</a>";
                     if (link3!='') {
-                      link = link + link3.split('/')[1] + "<br><a class='content__navigation' href='extra.html' id='" + link3.split('/')[0] + "'>Переход</a>";
+                      link = link + link3.split('/')[1] + "<br><a class='content__navigation' href='#' id='" + link3.split('/')[0] + "'>Переход</a>";
                       if (link4!='') {
-                        link = link + link4.split('/')[1] + "<br><a class='content__navigation' href='magaz.html' id='" + link4.split('/')[0] + "'>Переход</a>";
+                        link = link + link4.split('/')[1] + "<br><a class='content__navigation' href='#' id='" + link4.split('/')[0] + "'>Переход</a>";
                         if (link5!='') {
-                          link = link + link5.split('/')[1] + "<br><a class='content__navigation' href='kosheevacep.html' id='" + link5.split('/')[0] + "'>Переход</a>";
+                          link = link + link5.split('/')[1] + "<br><a class='content__navigation' href='#' id='" + link5.split('/')[0] + "'>Переход</a>";
                         }
                       }
                     }
