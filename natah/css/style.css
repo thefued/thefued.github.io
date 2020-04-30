@@ -23,17 +23,17 @@
     display: inline-block;
     margin-left: 50px; }
     .page__social-viber {
-      background: url(../img/SVG/viber.svg);
+      background: url(../img/svg/viber.svg);
       background-size: contain;
       background-position: center center;
       background-repeat: no-repeat; }
     .page__social-whatsapp {
-      background: url(../img/SVG/whatsapp.svg);
+      background: url(../img/svg/whatsapp.svg);
       background-size: contain;
       background-position: center center;
       background-repeat: no-repeat; }
     .page__social-telegram {
-      background: url(../img/SVG/telegram.svg);
+      background: url(../img/svg/telegram.svg);
       background-size: contain;
       background-position: center center;
       background-repeat: no-repeat; }
@@ -180,7 +180,7 @@
       width: 1345px;
       top: 0px;
       left: calc((1440px - 100vw)/2);
-      background: url(../img/SVG/logo-light.svg), #ebebeb;
+      background: url(../img/svg/logo-light.svg), #ebebeb;
       background-repeat: no-repeat;
       background-position: left bottom;
       background-size: 50%; }
