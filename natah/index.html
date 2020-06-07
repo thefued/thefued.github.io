@@ -5,6 +5,7 @@
 	<link rel="stylesheet" href="css/style.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Natah</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 </head>
 <body class="page">
 	<header class="header">
@@ -34,7 +35,7 @@
 					<button type="button" class="page__link page__link-open">Открыть меню</a>
 				</li>
 			</ul>
-			<ul class="header__menu menu-mob">
+			<ul class="header__menu menu-mob menu-mob-hidden">
 				<li class="menu__item menu-mob__item">
 					<button type="button" class="page__link page__link-close">Закрыть</a>
 				</li>
@@ -52,14 +53,16 @@
 				</li>
 			</ul>
 		</nav>
-		<div class="banner">
-			<h1 class="banner__title page__title">
-				РАЗРАБОТКА ФИРМЕННОГО СТИЛЯ
-			</h1>
-			<img src="img/1x/image_1.jpg" alt="" class="banner__image" />
-		</div>
 		</div>
 	</header>
+	<section class="banner">
+		<div class="header__wrapper">
+		<img src="img/1x/image_1.jpg" alt="" class="banner__image" />
+		<h1 class="banner__title page__title">
+			РАЗРАБОТКА ФИРМЕННОГО СТИЛЯ
+		</h1>
+		</div>
+	</section>
 	<section class="page__section section section-service" id="service">
 		<header class="section__header section__header-dark">
 			<h4 class="section__subtitle">Что мы делаем</h4>
@@ -124,122 +127,136 @@
 		</header>
 		<div class="section-project__wrapper section__wrapper">
 			<div class="projects">
-				<div class="projects__container projects__container-1">
-					<img src="img/1x/image_7.jpg" alt="" class="projects__img">
+				<div class="projects__container">
+					<img src="img/1x/preview-das.png" alt="" class="projects__img">
 					<div class="projects__description p-description">
-						<div>
 							<h4 class="p-description__title">
 								DAS
 							</h4>
 							<h5 class="p-description__subtitle">
 								Ребрендинг
 							</h5>
-						</div>
-						<ul class="p-description__list">
-							<li>
-								<span>
-									ДО
-								</span>
-								<img src="img/SVG/das-b.svg" alt="" class="p-description__img-1">
-							</li>
-							<li>
-								<span>
-									ПОСЛЕ
-								</span>
-								<img src="img/SVG/das-a.svg" alt="" class="p-description__img-2">
-							</li>
-						</ul>
 					</div>
 				</div>
-				<div class="projects__container projects__container-2">
-					<img src="img/1x/image_8.jpg" alt="" class="projects__img">
+				<div class="projects__container">
+					<img src="img/1x/preview-sakura.png" alt="" class="projects__img">
 					<div class="projects__description p-description">
-						<div>
 							<h4 class="p-description__title">
-								Мирай
+								Sakura
 							</h4>
 							<h5 class="p-description__subtitle">
-								Логобук
+								Полиграфия
 							</h5>
-						</div>
 					</div>
 				</div>
-				<div class="projects__container projects__container-3">
-					<img src="img/1x/image_9.jpg" alt="" class="projects__img">
+				<div class="projects__container">
+					<img src="img/1x/preview-kub.png" alt="" class="projects__img">
 					<div class="projects__description p-description">
-						<div>
 							<h4 class="p-description__title">
 								Куб
 							</h4>
 							<h5 class="p-description__subtitle">
-								Нейминг, логобук
-							</h5>
-						</div>
-					</div>
-				</div>
-				<div class="projects__container projects__container-4">
-					<img src="img/1x/image_10.jpg" alt="" class="projects__img">
-					<div class="projects__description p-description">
-						<div>
-							<h4 class="p-description__title">
-								7 Пятниц
-							</h4>
-							<h5 class="p-description__subtitle">
-								Гайдлайн
-							</h5>
-						</div>
-					</div>
-				</div>
-				<div class="projects__container projects__container-5">
-					<img src="img/1x/image_11.jpg" alt="" class="projects__img">
-					<div class="projects__description p-description">
-						<div>
-							<h4 class="p-description__title">
-								Регион Арт
-							</h4>
-							<h5 class="p-description__subtitle">
 								Брендбук
 							</h5>
-						</div>
 					</div>
 				</div>
-				<div class="projects__container projects__container-6">
-					<img src="img/1x/image_12.jpg" alt="" class="projects__img">
+				<div class="projects__container">
+					<img src="img/1x/preview-maxcapital.png" alt="" class="projects__img">
 					<div class="projects__description p-description">
-						<div>
 							<h4 class="p-description__title">
-								Iqos
+								MAX Capital
 							</h4>
 							<h5 class="p-description__subtitle">
-								Наружная реклама
+								Полиграфия
 							</h5>
-						</div>
 					</div>
 				</div>
-				<div class="projects__container projects__container-7">
-					<img src="img/1x/image_13.jpg" alt="" class="projects__img">
+				<div class="projects__container">
+					<img src="img/1x/preview-seeyou.png" alt="" class="projects__img">
 					<div class="projects__description p-description">
-						<div>
-							<h4 class="p-description__title">
-								Adidas
-							</h4>
-							<h5 class="p-description__subtitle">
-								Наружная реклама
-							</h5>
-						</div>
-					</div>
-				</div>
-				<div class="projects__container projects__container-8">
-					<img src="img/1x/image_14.jpg" alt="" class="projects__img">
-					<div class="projects__description p-description">
-						<div>
 							<h4 class="p-description__title">
 								Sew you
 							</h4>
 							<h5 class="p-description__subtitle">
 								Брендбук
 							</h5>
-						</div>
+					</div>
+				</div>
+				<div class="projects__container">
+					<img src="img/1x/preview-art.png" alt="" class="projects__img">
+					<div class="projects__description p-description">
+							<h4 class="p-description__title">
+								Регион Арт	
+							</h4>
+							<h5 class="p-description__subtitle">
+								Полиграфия
+							</h5>
+					</div>
+				</div>
+				<div class="projects__container">
+					<img src="img/1x/preview-cosmos.png" alt="" class="projects__img">
+					<div class="projects__description p-description">
+							<h4 class="p-description__title">
+								COSMOS	
+							</h4>
+							<h5 class="p-description__subtitle">
+								Полиграфия
+							</h5>
+					</div>
+				</div>
+				<div class="projects__container">
+					<img src="img/1x/preview-memory.png" alt="" class="projects__img">
+					<div class="projects__description p-description">
+							<h4 class="p-description__title">
+								Memory	
+							</h4>
+							<h5 class="p-description__subtitle">
+								Брендбук
+							</h5>
+					</div>
+				</div>
+				<div class="projects__container">
+					<img src="img/1x/preview-miray.png" alt="" class="projects__img">
+					<div class="projects__description p-description">
+							<h4 class="p-description__title">
+								Мирай
+							</h4>
+							<h5 class="p-description__subtitle">
+								Разработка логотипа
+							</h5>
+					</div>
+				</div>
+				<div class="projects__container">
+					<img src="img/1x/preview-iqos.png" alt="" class="projects__img">
+					<div class="projects__description p-description">
+							<h4 class="p-description__title">
+								Iqos
+							</h4>
+							<h5 class="p-description__subtitle">
+								Наружная реклама
+							</h5>
+					</div>
+				</div>
+				<div class="projects__container">
+					<img src="img/1x/preview-muse.png" alt="" class="projects__img">
+					<div class="projects__description p-description">
+							<h4 class="p-description__title">
+								Muse
+							</h4>
+							<h5 class="p-description__subtitle">
+								Брендбук
+							</h5>
+					</div>
+				</div>
+				<div class="projects__container">
+					<img src="img/1x/preview-adidas.png" alt="" class="projects__img">
+					<div class="projects__description p-description">
+							<h4 class="p-description__title">
+								Adidas
+							</h4>
+							<h5 class="p-description__subtitle">
+								Наружная реклама
+							</h5>
 					</div>
 				</div>
 			</div>
@@ -538,5 +555,16 @@
 			<button type="submit" class="page__button callback-form__button">Оставить заявку</button>
 		</form>
 	</div>
+	<script>
+		if(window.matchMedia('(max-width: 768px)').matches){
+		jQuery(window).scroll(function() {jQuery('.banner__image').height(jQuery('.banner__image').height()-17+jQuery(window).scrollTop()/30)});
+		jQuery('.page__link-open').click(function(){
+			jQuery('.menu-mob').toggleClass('menu-mob-hidden');
+		});
+		jQuery('.page__link-close').click(function(){
+			jQuery('.menu-mob').toggleClass('menu-mob-hidden');
+		});
+		}
+	</script>
 </body>
 </html>
