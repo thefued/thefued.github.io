@@ -305,8 +305,7 @@
       .banner__title {
         font-size: 5vw;
         padding: 5vw 70px 5vw 20px;
-        width: 500px;
-        max-width: 45%;
+        width: auto;
         box-sizing: border-box; } }
     @media screen and (max-width: 760px) {
       .banner__title {
@@ -527,7 +526,7 @@
     margin: 0px;
     transform: rotate(90deg);
     transform-origin: 100% 0%;
-    top: 100vw;
+    top: 90vw;
     right: 0px;
     white-space: nowrap;
     z-index: 0; }
@@ -633,7 +632,7 @@
   .projects__container {
     width: 20%;
     margin: 0px 2.5% 100px;
-    min-width: 150px;
+    min-width: 148px;
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -646,10 +645,11 @@
     @media screen and (max-width: 1024px) {
       .projects__container {
         margin: auto;
+        margin-top: 0px;
         margin-bottom: 100px; } }
     .projects__container-hidden {
       opacity: 0;
-      margin-top: 100px;
+      margin-top: 100px !important;
       border-radius: 20px; }
   .projects__img {
     height: auto;
