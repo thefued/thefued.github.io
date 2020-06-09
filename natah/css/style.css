@@ -526,7 +526,7 @@
     margin: 0px;
     transform: rotate(90deg);
     transform-origin: 100% 0%;
-    top: 90vw;
+    top: 900px;
     right: 0px;
     white-space: nowrap;
     z-index: 0; }
@@ -632,7 +632,7 @@
   .projects__container {
     width: 20%;
     margin: 0px 2.5% 100px;
-    min-width: 148px;
+    min-width: 128px;
     text-align: center;
     display: flex;
     flex-direction: column;
