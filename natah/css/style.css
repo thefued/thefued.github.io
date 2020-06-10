@@ -368,8 +368,8 @@
     @media screen and (max-width: 760px) {
       .banner__image {
         width: 100%;
-        margin-top: 100px;
-        height: calc(100vh - 100px);
+        margin-top: 60px;
+        height: calc(100vh - 60px);
         max-width: 100%;
         float: none; } }
     @media screen and (max-width: 760px) and (orientation: landscape) {
@@ -966,7 +966,8 @@
     @media screen and (max-width: 760px) {
       .popup__form {
         width: 100%;
-        padding: 10vh 5vw; } }
+        padding: 8vh 5px 8vh;
+        top: 25px; } }
 
 .callback-form {
   text-align: center;
@@ -974,6 +975,9 @@
   .callback-form__title {
     font-size: 40px;
     margin: 0px; }
+    @media (max-width: 568px) {
+      .callback-form__title {
+        font-size: 26px; } }
   .callback-form__subtitle {
     font-size: 18px;
     margin: 20px auto 30px; }
@@ -988,7 +992,8 @@
     border-radius: 12px;
     border: 2px solid #1A2128;
     background: transparent;
-    color: #1A2128; }
+    color: #1A2128;
+    box-sizing: border-box; }
     .callback-form__input::placeholder {
       opacity: 0.4; }
     .callback-form__input:focus {
@@ -1002,7 +1007,7 @@
     border: 0px; }
     @media screen and (max-width: 760px) {
       .callback-form__button {
-        width: 100%;
+        width: 90%;
         padding: 15px 0px; } }
   .callback-form__close {
     font-size: 0px;
