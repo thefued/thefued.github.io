@@ -320,7 +320,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var mySkills = [0, 1, 2, 3, 4, 5, 8, 9, 10];
 var myJsSkill = 68;
-svg4everybody();
+$(document).on('ready', function () {});
 setTimeout(function () {
   mySkills.forEach(function (entry) {
     setTimeout(function () {
@@ -373,7 +373,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-svg4everybody__WEBPACK_IMPORTED_MODULE_1___default()();
 window.$ = jquery__WEBPACK_IMPORTED_MODULE_2___default.a;
 window.jQuery = jquery__WEBPACK_IMPORTED_MODULE_2___default.a;
 
