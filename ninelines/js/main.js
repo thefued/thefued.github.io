@@ -320,6 +320,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var mySkills = [0, 1, 2, 3, 4, 5, 8, 9, 10];
 var myJsSkill = 68;
+svg4everybody();
 setTimeout(function () {
   mySkills.forEach(function (entry) {
     setTimeout(function () {
