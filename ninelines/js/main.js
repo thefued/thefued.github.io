@@ -320,39 +320,39 @@ __webpack_require__.r(__webpack_exports__);
 
 var mySkills = [0, 1, 2, 3, 4, 5, 8, 9, 10];
 var myJsSkill = 68;
-$(document).on('ready', function () {
+$(document).ready(function () {
   svg4everybody();
-});
-setTimeout(function () {
-  mySkills.forEach(function (entry) {
-    setTimeout(function () {
-      $('#checkbox' + entry).prop('checked', true);
-    }, 100 * entry);
-  });
-}, 1000);
-$('.js-value').on('click', function () {
-  $('.js-value').removeClass('js-value-text');
-  $('.js-value').html('&nbsp');
-  var jsSkill = 0;
-  $('.speedometer__arrow').css({
-    'transform': 'rotate(' + Math.round(180 * myJsSkill / 100) + 'deg)'
-  });
-  var timer = setTimeout(function upSkill() {
-    jsSkill++;
-    $('.js-value__span-hidden').remove();
-    $('.js-value__span').addClass('js-value__span-hidden');
-    $('.js-value__span-hidden').css({
-      'transition': jsSkill * 2.3 / 1000 + 's ease'
+  setTimeout(function () {
+    mySkills.forEach(function (entry) {
+      setTimeout(function () {
+        $('#checkbox' + entry).prop('checked', true);
+      }, 100 * entry);
     });
-    $('.js-value').prepend('<span class="js-value__span">' + jsSkill + '</span>');
-
-    if (jsSkill < myJsSkill) {
-      timer = setTimeout(upSkill, 20 + jsSkill * 2.3);
-    } else {
+  }, 1000);
+  $('.js-value').on('click', function () {
+    $('.js-value').removeClass('js-value-text');
+    $('.js-value').html('&nbsp');
+    var jsSkill = 0;
+    $('.speedometer__arrow').css({
+      'transform': 'rotate(' + Math.round(180 * myJsSkill / 100) + 'deg)'
+    });
+    var timer = setTimeout(function upSkill() {
+      jsSkill++;
       $('.js-value__span-hidden').remove();
-    } // (*)
+      $('.js-value__span').addClass('js-value__span-hidden');
+      $('.js-value__span-hidden').css({
+        'transition': jsSkill * 2.3 / 1000 + 's ease'
+      });
+      $('.js-value').prepend('<span class="js-value__span">' + jsSkill + '</span>');
 
-  }, 0);
+      if (jsSkill < myJsSkill) {
+        timer = setTimeout(upSkill, 20 + jsSkill * 2.3);
+      } else {
+        $('.js-value__span-hidden').remove();
+      } // (*)
+
+    }, 0);
+  });
 });
 
 /***/ }),
