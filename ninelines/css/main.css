@@ -465,6 +465,9 @@ body {
   width: 140px;
   flex-shrink: 0;
   height: 60px; }
+  @media (max-width: 1024px) {
+    .skills__item {
+      width: 130px; } }
 
 .skills__checkbox {
   font-size: 12px;
@@ -512,7 +515,7 @@ body {
   overflow: hidden; }
   .javascript__speedometer {
     width: 255px;
-    height: 140px; }
+    height: 150px; }
   .javascript__text {
     margin-left: 67px; }
     @media (max-width: 1024px) {
@@ -526,14 +529,15 @@ body {
       align-items: center; } }
 
 .speedometer {
-  position: relative; }
+  position: relative;
+  overflow: hidden; }
   .speedometer__round {
     width: 100%;
     position: absolute; }
   .speedometer__arrow {
     position: absolute;
     width: 50%;
-    bottom: -40px;
+    top: 60px;
     left: 25%;
     transform-origin: 50% 50%;
     transition: 7s cubic-bezier(0.26, 0.61, 0.58, 0.99); }
