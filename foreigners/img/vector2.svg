@@ -1,0 +1,15 @@
+<svg width="609" height="482" viewBox="0 0 609 482" fill="none" xmlns="http://www.w3.org/2000/svg" id="vector_2">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M371.824 42.2165C443.421 44.4015 453.503 -13.7593 529.328 21.4104C599.91 54.1482 608.865 123.896 608.865 201.494C606.061 275.858 573.875 318.603 516.217 369.163C462.099 416.618 412.713 475.995 339.143 481.013C261.812 486.288 192.803 443.672 134.577 395.195C71.3396 342.545 9.31413 262.693 1.69833 197.007C-4.06318 147.314 -0.791964 61.1331 104.511 14.7998C204.468 -29.1812 297.687 39.9541 371.824 42.2165Z" fill="#1A3376" fill-opacity="0.15"/>
+<mask xmlns="http://www.w3.org/2000/svg" id="mask0" mask-type="alpha" maskUnits="userSpaceOnUse">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M371.824 42.2165C443.421 44.4015 453.503 -13.7593 529.328 21.4104C599.91 54.1482 608.865 123.896 608.865 201.494C606.061 275.858 573.875 318.603 516.217 369.163C462.099 416.618 412.713 475.995 339.143 481.013C261.812 486.288 192.803 443.672 134.577 395.195C71.3396 342.545 9.31413 262.693 1.69833 197.007C-4.06318 147.314 -0.791964 61.1331 104.511 14.7998C204.468 -29.1812 297.687 39.9541 371.824 42.2165Z" fill="#000000" fill-opacity="1"/>
+</mask>
+<g xmlns="http://www.w3.org/2000/svg" mask="url(#mask0)">
+<rect x="80" y="50" width="450" height="450" fill="url(#pattern0)"/>
+</g>
+<defs xmlns="http://www.w3.org/2000/svg">
+<pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
+<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#image0" transform="scale(0.0019)"/>
+</pattern>
+<image id="image0" width="500" height="500" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="learning.png"/>
+</defs>
+</svg>
