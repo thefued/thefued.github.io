@@ -202,6 +202,10 @@ img {
 	&__data {
 		padding-right: 10px;
 		flex-shrink: 0;
+		width: 18%;
+		@include desktop {
+			width: 21%;
+		}
 	}
 	&__dayweek {
 		font-size: 10px;
@@ -215,6 +219,7 @@ img {
 		color: $color-purple-heart;
 		display: block;
 		font-weight: 800;
+		text-align: center;
 	}
 	&__svg {
 		width: 16px;
@@ -225,6 +230,7 @@ img {
 	}
 	&__info {
 		width: auto;
+		flex-grow: 1;
 	}
 	&__name {
 		font-size: 14px;
@@ -232,7 +238,7 @@ img {
 		margin: 0 0 10px;
 	}
 	&__text {
-		margin: 0 0 10px;
+		margin: 0 0 7px;
 		font-size: 12px;
 		color: #4c4c4c;
 		@include flex-row;
