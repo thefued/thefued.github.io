@@ -607,7 +607,10 @@ img {
   margin-top: 25px; }
 
 .platform__title {
-  margin: 0; }
+  margin: 0;
+  font-size: 12px;
+  line-height: 18px;
+  font-weight: 500; }
 
 .platform__link {
   display: inline-block;
