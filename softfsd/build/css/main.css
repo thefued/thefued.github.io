@@ -397,7 +397,8 @@ img {
     font-size: 14px;
     line-height: 40px;
     width: 336px;
-    min-height: 40px; }
+    min-height: 40px;
+    height: 39px; }
     .button-pink:hover {
       background: #ffffff;
       color: #6F36BC; }
@@ -407,6 +408,7 @@ img {
     color: #6F36BC;
     width: 150px;
     min-height: 32px;
+    height: 31px;
     line-height: 32px;
     font-size: 12px; }
     .button-transparent:hover {
@@ -764,6 +766,7 @@ img {
     padding: 0;
     margin: 0;
     min-height: 100vh;
+    height: 99.9vh;
     padding-top: 15vh;
     box-sizing: border-box;
     display: flex;
@@ -773,6 +776,7 @@ img {
     @media (min-width: 1025px) {
       .menu__list {
         min-height: auto;
+        height: auto;
         padding-top: 0;
         display: flex;
         justify-content: space-between;
@@ -808,10 +812,12 @@ img {
     align-items: center;
     flex-wrap: wrap;
     width: 100%;
-    min-height: 60px; }
+    min-height: 60px;
+    height: 59px; }
     @media (min-width: 1025px) {
       .header__wrapper {
         min-height: 179px;
+        height: 178px;
         max-width: 1120px;
         width: 90%;
         margin: 0 auto; } }
@@ -821,7 +827,8 @@ img {
     transition: 0.5s ease;
     position: absolute;
     width: 100vw;
-    min-height: 100vh; }
+    min-height: 100vh;
+    height: 99.5vh; }
     .header__menu-hidden {
       top: -100vh; }
       @media (min-width: 1025px) {
@@ -829,7 +836,8 @@ img {
           top: 0;
           position: relative;
           width: auto;
-          min-height: auto; } }
+          min-height: auto;
+          height: auto; } }
   .header__logo {
     width: 48px;
     height: 48px; }
@@ -877,7 +885,8 @@ img {
         max-width: 1120px;
         width: 90%;
         margin: 0 auto;
-        min-height: 100px; } }
+        min-height: 100px;
+        height: 99px; } }
   .footer__link {
     text-decoration: none;
     color: inherit; }

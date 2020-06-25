@@ -45,6 +45,7 @@ img {
 		line-height: 40px;
 		width: 336px;
 		min-height: 40px;
+		height: 39px;
 		&:hover {
 			background: #ffffff;
 			color: $color-purple-heart;
@@ -56,6 +57,7 @@ img {
 		color: $color-purple-heart;
 		width: 150px;
 		min-height: 32px;
+		height: 31px;
 		line-height: 32px;
 		font-size: 12px;
 		&:hover {
@@ -440,6 +442,7 @@ img {
 		padding: 0;
 		margin: 0;
 		min-height: 100vh;
+		height: 99.9vh;
 		padding-top: 15vh;
 		box-sizing: border-box;
 		display: flex;
@@ -448,6 +451,7 @@ img {
 		justify-content: space-around;
 		@include desktop {
 			min-height: auto;
+			height: auto;
 			padding-top: 0;
 			@include flex-row;
 		}
@@ -483,8 +487,10 @@ img {
 		@include flex-row;
 		width: 100%;
 		min-height: 60px;
+		height: 59px;
 			@include desktop {
 				min-height: 179px;
+				height: 178px;
 				max-width: 1120px;
 				width: 90%;
 				margin: 0 auto;
@@ -497,6 +503,7 @@ img {
 		position: absolute;
 		width: 100vw;
 		min-height: 100vh;
+		height: 99.5vh;
 		&-hidden {
 			top: -100vh;
 			@include desktop {
@@ -504,6 +511,7 @@ img {
 				position: relative;
 				width: auto;
 				min-height: auto;
+			height: auto;
 			}
 		}
 	}
@@ -556,6 +564,7 @@ img {
 			width: 90%;
 			margin: 0 auto;
 			min-height: 100px;
+			height: 99px;
 		}
 	}
 	&__link {
