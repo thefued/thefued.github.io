@@ -457,7 +457,7 @@
 							<ul class="types-list">
 								<li class="types-list__item">
 									Логотип<br>
-									<span>(2 варианта)</span>
+									<span>(3 варианта)</span>
 								</li>
 								<li class="types-list__item">
 									Цветовая палитра
@@ -605,10 +605,12 @@
 		jQuery('.projects__container').each(function() {
 			jQuery(this).addClass('projects__container-hidden');
 		});
-		jQuery('.list-service__img').each(function() {
+
+		/*jQuery('.list-service__img').each(function() {
 			i++;
 			jQuery(this).addClass('list-service__img-hidden').attr('id', 'list-service__img-' + i);
 		});
+		*/
 		jQuery('.popup').hide();
 		jQuery('.popup').css({position: 'fixed'});
 		jQuery('#callbackcall').click(function(e) {
@@ -620,7 +622,7 @@
 		})
 		jQuery(window).scroll(function(e) {
 			
-			if (jQuery(window).scrollTop()+(height/1.5)>jQuery('.projects').offset().top) {
+			if (jQuery(window).scrollTop()+(height)>jQuery('.projects').offset().top) {
 				let i = 0;
 				jQuery('.projects__container').each(function() {
 					let elem = this;
@@ -638,11 +640,13 @@
 			}
 
 			if ((jQuery(window).scrollTop()+height/2>jQuery('.section-service').offset().top)&&(jQuery(window).scrollTop()+height/2<jQuery('.section-service').offset().top+jQuery('.section-service').height())) {
-				jQuery('.list-service__img').each(function() {
+				
+				/*jQuery('.list-service__img').each(function() {
 					if (jQuery(window).scrollTop()+(height/1.5)>jQuery(this).offset().top) {
 					jQuery(this).removeClass('list-service__img-hidden');
 					}
 				});
+				*/
 
 				jQuery('.section-service').find('.section__back').css({
 				'top': (50 + (jQuery(window).scrollTop()+height/2-jQuery('.section-service').offset().top)*0.3)

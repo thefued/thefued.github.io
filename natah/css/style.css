@@ -726,7 +726,7 @@ html {
     justify-content: space-between;
     align-items: center;
     position: relative;
-    transition: 1s ease;
+    transition: 2s ease;
     opacity: 1;
     position: relative; }
     @media screen and (max-width: 1024px) {
