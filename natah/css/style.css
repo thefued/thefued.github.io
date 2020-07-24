@@ -1,9 +1,57 @@
 @import url("../fonts/stylesheet.css");
 @import url("normalize.css");
+html {
+  overflow-y: scroll; }
+
 .page {
   font-family: 'Gotham Pro';
   background: #1A2128;
   color: #E9E7E7; }
+  .page-project {
+    background: #E9E7E7;
+    color: #1A2128;
+    transition: 0.5s ease;
+    min-height: 100vh; }
+    .page-project-opacity {
+      position: relative;
+      overflow: hidden;
+      filter: blur(3px);
+      opacity: 0; }
+    .page-project__main {
+      margin-top: 100px;
+      overflow: show; }
+      .page-project__main h2 {
+        font-size: 40px;
+        margin: 30px 0px; }
+      .page-project__main p {
+        font-size: 18px;
+        line-height: 1.4;
+        margin: 10px 0px; }
+    .page-project__image {
+      float: right;
+      position: relative;
+      margin-right: -8vw;
+      margin-left: 10%;
+      margin-top: -100px;
+      width: 300px;
+      max-width: 100%;
+      height: auto; }
+      @media (max-width: 1024px) {
+        .page-project__image {
+          display: block;
+          margin-top: 0px;
+          margin-bottom: 100px; } }
+      @media (max-width: 768px) {
+        .page-project__image {
+          display: block;
+          width: 200px;
+          float: none;
+          margin: 10px auto; } }
+    .page-project__slider {
+      clear: both;
+      margin: 30px auto;
+      width: 1024px;
+      max-width: 90%; }
   .page__button {
     background: #1A2128;
     border-radius: 12px;
@@ -16,7 +64,8 @@
         padding: 10px 10px; } }
   .page__link {
     color: #1A2128;
-    text-decoration: none; }
+    text-decoration: none;
+    line-height: 200%; }
     .page__link:hover {
       color: #bebebe; }
     .page__link-close {
@@ -318,32 +367,50 @@
         max-width: 100%;
         position: static;
         font-size: 9vw; } }
-    .banner__title::after {
+  .banner__blackline {
+    position: absolute;
+    display: block;
+    width: 8vw;
+    height: 1.5vw;
+    right: -5vw;
+    top: 47%;
+    background: #1A2128;
+    max-width: 195px;
+    overflow: hidden;
+    z-index: 20; }
+    @media screen and (max-width: 1440px) {
+      .banner__blackline {
+        width: 6vw;
+        height: 15px;
+        right: -3vw; } }
+    @media screen and (max-width: 1024px) {
+      .banner__blackline {
+        width: 30%;
+        right: 30px;
+        height: 10px;
+        top: 70%;
+        bottom: 6.5vw; } }
+    @media screen and (max-width: 760px) {
+      .banner__blackline {
+        height: 5px;
+        bottom: 7vw;
+        top: auto; } }
+    .banner__blackline-text {
       position: absolute;
-      content: '';
-      display: block;
-      width: 8vw;
-      height: 1.5vw;
-      right: -5vw;
-      top: 47%;
-      background: #1A2128;
-      max-width: 195px; }
+      right: calc(5vw + 99px);
+      top: -109px;
+      width: auto;
+      color: white;
+      margin: 0px; }
       @media screen and (max-width: 1440px) {
-        .banner__title::after {
-          width: 6vw;
-          height: 15px;
-          right: -3vw; } }
+        .banner__blackline-text {
+          right: calc(3vw + 74px);
+          top: -74px;
+          font-size: 50px; } }
       @media screen and (max-width: 1024px) {
-        .banner__title::after {
-          width: 30%;
-          right: 30px;
-          height: 10px;
-          top: auto;
-          bottom: 6.5vw; } }
-      @media screen and (max-width: 760px) {
-        .banner__title::after {
-          height: 5px;
-          bottom: 7vw; } }
+        .banner__blackline-text {
+          right: -57px;
+          top: -141px; } }
   .banner__image {
     z-index: 2;
     position: relative;
@@ -430,10 +497,14 @@
           background: linear-gradient(to right, transparent 81px, #E9E7E7 81px, #E9E7E7 100%), url(../img/1x/back.png), #E9E7E7; } }
       .section__header-light::before {
         background: #1A2128; }
+    .section__header-project {
+      background: linear-gradient(to right, transparent 30vw, #E9E7E7 30vw, #E9E7E7 100%), url(../img/1x/back.png), #E9E7E7;
+      padding-left: 40vw; }
   .section__title {
     font-size: 40px;
     font-weight: bolder;
-    margin: 16px 0px; }
+    margin: 16px 0px;
+    position: relative; }
     @media screen and (max-width: 1440px) {
       .section__title {
         font-size: 30px; } }
@@ -624,7 +695,7 @@
     position: relative;
     z-index: -1;
     right: 0%;
-    transition: 0.5s cubic-bezier(0.25, 1.19, 0.6, 1.38); }
+    transition: 0.4s cubic-bezier(0.22, 1.01, 0.22, 1.01); }
     .list-service__img-hidden {
       right: -100%; }
 
@@ -637,9 +708,14 @@
     position: absolute;
     width: 110%;
     left: -5%;
-    height: 120%; }
+    height: 120%;
+    border-radius: 2px; }
     .projects__link:hover {
-      box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.2); }
+      box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.2); }
+    @media (max-width: 768px) {
+      .projects__link {
+        width: 100%;
+        left: 0%; } }
   .projects__container {
     width: 20%;
     margin: 0px 2.5% 100px;
@@ -657,11 +733,15 @@
       .projects__container {
         margin: auto;
         margin-top: 0px;
-        margin-bottom: 100px; } }
+        margin-bottom: 100px;
+        padding: 0px 5px;
+        box-sizing: border-box; } }
     .projects__container-hidden {
       opacity: 0;
       margin-top: 100px !important;
       border-radius: 20px; }
+    .projects__container:hover .p-description {
+      color: #333333; }
   .projects__img {
     height: auto;
     max-width: 80%;
@@ -730,12 +810,22 @@
   .price-list__title {
     width: 80%;
     position: absolute;
+    color: #ffffff;
+    margin-top: 50px;
+    font-family: inherit;
     background-color: #707570;
     font-size: 40px;
     top: -220px;
     left: 10%;
     text-align: center;
-    padding: 20px 0px; }
+    padding: 20px 0px;
+    cursor: pointer;
+    outline: none;
+    border: none; }
+    .price-list__title:focus, .price-list__title:hover {
+      outline: 1px solid white; }
+    .price-list__title:hover + .types .types-list__title-hidden {
+      color: #E9E7E7 !important; }
     @media screen and (max-width: 1440px) {
       .price-list__title {
         font-size: 30px;

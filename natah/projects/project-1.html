@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="../css/style.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+	<title>Редизайн DAS</title>
+</head>
+<body class="page page-project">
+	<header class="header">
+		<div class="header__wrapper">
+		<nav class="navigation">
+			<img class="header__logo" src="/img/svg/logofull.svg" />
+			<ul class="header__menu menu">
+				<li class="menu__item menu__item-d">
+					<a href="../" class="page__link back">Назад к проектам</a>
+				</li>
+				<li class="menu__item menu__item-mob760">
+					<a href="tel:+7(912)7446476" class="page__link ">+7 (912) 744 64 76</a>
+				</li>
+				<li class="menu__item">
+					<a href="#callback" id="callbackcall" class="page__button">Связаться с нами</a>
+				</li>
+				<li class="menu__item menu__item-mob">
+					<button type="button" class="page__link page__link-open">Открыть меню</a>
+				</li>
+			</ul>
+			<ul class="header__menu menu-mob menu-mob-hidden">
+				<li class="menu__item menu-mob__item">
+					<button type="button" class="page__link page__link-close">Закрыть</a>
+				</li>
+				<li class="menu__item menu-mob__item">
+					<a href="../" class="page__link back">Назад к проектам</a>
+				</li>
+				<li class="menu__item menu-mob__item">
+					<a href="tel:+7(912)7446476" class="page__link ">+7 (912) 744 64 76</a>
+				</li>
+			</ul>
+		</nav>
+		</div>
+	<div class="page__popup popup" id="callback">
+		<form class="popup__form callback-form" action="index.html">
+			<button class="callback-form__close" type="button">Закрыть</button>
+			<h6 class="callback-form__title">
+				Связаться с нами
+			</h6>
+			<p class="callback-form__subtitle">
+				Просто оставьте свой номер телефона или e-mail и наш
+				менеджер с вами свяжется. <br>
+				Или позвоните по номеру: <br>
+				<a href="tel:+7(912)7446476" class="page__link ">+7 (912) 744 64 76</a>
+			</p>
+			<input name="callback-name"  type="text" value="" placeholder="Ваше Имя" class="callback-form__input">
+			<input name="callback-phone" type="text" value="" placeholder="Номер телефона" class="callback-form__input">
+			<button type="submit" class="page__button callback-form__button">Оставить заявку</button>
+		</form>
+	</div>
+	</header>
+	<main class="page__section section section-light page-project__main">
+		<header class="section__header section__header-light section__header-project">
+			<h1 class="section__title">Редизайн DAS</h1>
+		</header>
+		<div class="section__wrapper page-project__wrapper">
+			<img class="page-project__image" src="/img/1x/projects/project_das_preview.png" srcset="/img/2x/projects/project_das_preview@2x.png 2x" />
+			<h2>Задача</h2>
+			<p>
+				Ребрейдинг фирменного стиля  для строительной компании DAS. Мы провели работу по разработке нейминга, позиционирования, логотипа, фирменного стиля. Изначально компания называлась ДА-строй. Заказчику важно сохранить игру слова «Дострой», поэтому букву «D» хочется достоить квадратиком.
+			</p>
+			<h2>Компания</h2>
+			<p>
+				Компания DAS занимается проведением работ по проектированию промышленных конструкций, строит объекты социального, торгово- развлекательного и промышленного назначения, поставляют металл, который активно используюется в гражданском и промышленном строительстве.
+			</p>
+		</div>
+	</main>
+
+	<script>
+		jQuery('.page__link-open').click(function(){
+			jQuery('.menu-mob').toggleClass('menu-mob-hidden');
+		});
+
+		jQuery('.menu-mob__item').click(function(){
+			jQuery('.menu-mob').toggleClass('menu-mob-hidden');
+		});
+		jQuery('.popup').hide();
+		jQuery('.popup').css({position: 'fixed'});
+		jQuery('#callbackcall').click(function(e) {
+			e.preventDefault();
+			jQuery('.popup').slideDown(500);
+		})
+		jQuery('.callback-form__close').click(function(e) {
+			jQuery('.popup').slideUp(500);
+		})
+		try {
+			localStorage.setItem('projects', 'true');
+		} catch(e) {
+			console.log(e);
+		}
+		$("a.back").click(function(e) {
+				e.preventDefault();
+				jQuery('.page-project').addClass('page-project-opacity');
+				setTimeout(function(){
+					location.href = '../';
+				}, 500);	
+		});
+	</script>
+</body>
+</html>
