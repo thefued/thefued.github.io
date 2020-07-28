@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>test</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+
+</head>
+<body class="page">
+	<!--
+	<svg class="icon icon-arr_round red_mod">
+    <use xlink:href="img/sprite/symbol/sprite.svg#telegram"></use>
+  </svg>
+-->
+	<header class="page__header header page__wrapper">
+		<nav class="header__navigation">
+			<ul class="header__menu menu">
+				<li class="menu__item"><a href="#" class="menu__link">Статьи</a></li>
+				<li class="menu__item"><a href="#" class="menu__link">Конференция</a></li>
+				<li class="menu__item"><a href="#" class="menu__link">Календарь</a></li>
+				<li class="menu__item"><a href="#" class="menu__link">Подкаст</a></li>
+				<li class="menu__item"><a href="#" class="menu__link">О проекте</a></li>
+				<li class="menu__item menu__item-support">
+					<a href="#" class="menu__link">
+					<svg class="menu__patreon" width="27" height="27" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path d="M16.322 3.91008C12.3518 3.91008 9.1217 7.13968 9.1217 11.1097C9.1217 15.0677 12.3518 18.2878 16.322 18.2878C20.28 18.2878 23.5 15.0677 23.5 11.1097C23.5 7.13968 20.28 3.91008 16.322 3.91008Z" fill="#F96753"/>
+						<path d="M3.5 23.09V3.91H7.02V23.09H3.5Z" fill="#052A49"/>
+					</svg>
+						Поддержать проект
+					</a>
+				</li>
+			</ul>
+			<button class="header__burger buttonMenu">
+				<span class="buttonMenu__line buttonMenu__line-1"></span>
+				<span class="buttonMenu__line buttonMenu__line-2"></span>
+				<span class="buttonMenu__line buttonMenu__line-3"></span>
+			</button>
+		</nav>
+		<div class="header__logo logo">
+			<svg class="logo__image" width="77" height="87" viewBox="0 0 77 87">
+				<path d="M71.8881 48.0646C69.4699 48.0646 67.5046 46.019 67.5046 43.5019V24.0342C67.5046 21.5171 69.4699 19.4715 71.8881 19.4715C74.3062 19.4715 76.2715 21.5171 76.2715 24.0342V43.5019C76.2715 46.019 74.3062 48.0646 71.8881 48.0646Z" fill="url(#paint0_linear)" />
+				<path d="M71.8879 28.597C71.172 28.597 70.4414 28.4145 69.7693 28.0266L36.017 8.55895C33.8983 7.33461 33.1312 4.55895 34.3075 2.35363C35.4837 0.148303 38.1502 -0.650176 40.2689 0.574158L74.0212 20.0418C76.1398 21.2662 76.9069 24.0418 75.7307 26.2472C74.9198 27.7529 73.4294 28.597 71.8879 28.597Z" fill="url(#paint1_linear)" />
+				<path d="M4.39074 28.597C2.84924 28.597 1.35158 27.7453 0.555255 26.2472C-0.620961 24.0418 0.146136 21.2662 2.26479 20.0418L36.0171 0.574158C38.1357 -0.650176 40.8023 0.148303 41.9785 2.35363C43.1547 4.55895 42.3876 7.33461 40.269 8.55895L6.5167 28.0266C5.83727 28.4145 5.1067 28.597 4.39074 28.597Z" fill="url(#paint2_linear)" />
+				<path d="M38.1357 48.0647C37.4198 48.0647 36.6892 47.8821 36.0171 47.4943L2.26479 28.0266C0.146136 26.8023 -0.620961 24.0266 0.555255 21.8213C1.73147 19.616 4.39805 18.8175 6.5167 20.0419L40.269 39.5095C42.3876 40.7339 43.1547 43.5095 41.9785 45.7148C41.1676 47.2206 39.6772 48.0647 38.1357 48.0647Z" fill="url(#paint3_linear)" />
+				<path d="M38.1356 87C35.7174 87 33.7522 84.9543 33.7522 82.4372V43.5019C33.7522 40.9848 35.7174 38.9391 38.1356 38.9391C40.5538 38.9391 42.519 40.9848 42.519 43.5019V82.4372C42.519 84.9543 40.5538 87 38.1356 87Z" fill="url(#paint4_linear)" />
+				<path d="M38.1429 87C36.6014 87 35.1038 86.1483 34.3075 84.6502C33.1312 82.4449 33.8983 79.6692 36.017 78.4449L69.7693 58.9772C71.8879 57.7529 74.5545 58.5513 75.7307 60.7567C76.9069 62.962 76.1398 65.7376 74.0212 66.962L40.2689 86.4297C39.5895 86.8175 38.8589 87 38.1429 87Z" fill="url(#paint5_linear)" />
+				<path d="M38.1357 87C37.4198 87 36.6892 86.8175 36.0171 86.4297L2.26479 66.962C0.146136 65.7376 -0.620961 62.962 0.555255 60.7567C1.73147 58.5513 4.39805 57.7529 6.5167 58.9772L40.269 78.4449C42.3876 79.6692 43.1547 82.4449 41.9785 84.6502C41.1676 86.1559 39.6772 87 38.1357 87Z" fill="url(#paint6_linear)" />
+				<path d="M4.38342 67.5323C1.96523 67.5323 0 65.4867 0 62.9696V43.5019C0 40.9848 1.96523 38.9391 4.38342 38.9391C6.8016 38.9391 8.76683 40.9848 8.76683 43.5019V62.9696C8.76683 65.4867 6.8016 67.5323 4.38342 67.5323Z" fill="url(#paint7_linear)" />
+				<defs>
+				    <linearGradient id="paint0_linear" x1="71.8889" y1="43.5027" x2="71.8889" y2="24.0351" gradientUnits="userSpaceOnUse">
+				        <stop stop-color="#C6F523" />
+				        <stop offset="0.9" stop-color="#AFE63A" />
+				    </linearGradient>
+				    <linearGradient id="paint1_linear" x1="71.8887" y1="24.0351" x2="37.5142" y2="5.73631" gradientUnits="userSpaceOnUse">
+				        <stop stop-color="#AFE63A" />
+				        <stop offset="0.9" stop-color="#81C36D" />
+				    </linearGradient>
+				    <linearGradient id="paint2_linear" x1="38.1365" y1="4.56742" x2="3.76201" y2="22.8662" gradientUnits="userSpaceOnUse">
+				        <stop stop-color="#81C36D" />
+				        <stop offset="0.8" stop-color="#61AFB4" />
+				    </linearGradient>
+				    <linearGradient id="paint3_linear" x1="4.38426" y1="24.0351" x2="38.7588" y2="42.3339" gradientUnits="userSpaceOnUse">
+				        <stop stop-color="#61AFB4" />
+				        <stop offset="0.9" stop-color="#42A0DA" />
+				    </linearGradient>
+				    <linearGradient id="paint4_linear" x1="38.1364" y1="43.5027" x2="38.1364" y2="82.4381" gradientUnits="userSpaceOnUse">
+				        <stop stop-color="#42A0DA" />
+				        <stop offset="0.8" stop-color="#3B84BB" />
+				    </linearGradient>
+				    <linearGradient id="paint5_linear" x1="71.8887" y1="62.9704" x2="37.5142" y2="81.2692" gradientUnits="userSpaceOnUse">
+				        <stop stop-color="#386D9B" />
+				        <stop offset="0.7" stop-color="#3B84BB" />
+				    </linearGradient>
+				    <linearGradient id="paint6_linear" x1="38.1365" y1="82.4381" x2="3.76199" y2="64.1393" gradientUnits="userSpaceOnUse">
+				        <stop offset="0.3" stop-color="#3B84BB" />
+				        <stop offset="0.9" stop-color="#366FA5" />
+				    </linearGradient>
+				    <linearGradient id="paint7_linear" x1="4.38422" y1="62.9704" x2="4.38422" y2="43.5027" gradientUnits="userSpaceOnUse">
+				        <stop stop-color="#366FA5" />
+				        <stop offset="1" stop-color="#366998" />
+				    </linearGradient>
+				</defs>
+			</svg>
+			<p class="logo__title">
+				Веб-стандарты
+				<span class="logo__description">
+					Сообщество разработчиков
+				</span>
+			</p>
+		</div>
+		<div class="header__infoBlock">
+			<article class="header__info info">
+				<p class="info__value">
+					<svg class="info__image" width="38" height="31">
+					    <use xlink:href="img/sprite/symbol/sprite.svg#micro"></use>
+					</svg>
+					164
+				</p>
+				<h2 class="info__title info__title-1">
+					Автор JS-интенсивов, встроенный скроллер в Chrome развитие SVG и & в CSS
+				</h2>
+			</article>
+			<article class="header__info info">
+				<p class="info__value">
+					<svg class="info__image" width="38" height="29">
+					    <use xlink:href="img/sprite/symbol/sprite.svg#calendar"></use>
+					</svg>
+					5 АПР
+				</p>
+				<h2 class="info__title  info__title-2">
+					Конференция в Москве, еще одна строка желательна
+				</h2>
+			</article>
+		</div>
+	</header>
+	<main class="page__main main page__wrapper">
+		<article class="main__news main__news-head news news-head">
+			<h2 class="news__title news__title-head">
+				Доступные SVG-иконки с инлайновыми спрайтами
+			</h2>
+			<p class="news__description  news__title-head">
+				Если мы перестанем раздавать ярлыки типа «JS-разработчик» или «UX-разработчик», то сможем добиться перемирия в текущей войне «JS против CSS».
+			</p>
+			<footer class="news__footer"><div class="news__data">
+				<time class="news__date news__date-head" datetime="2015-05-16 19:00">16 мая</time>
+				<span class="news__author news__author-head">иван константинопольский</span>
+			</footer>
+			<img class="news__image" src="img/points-head.svg" />
+		</article>
+		<article class="main__news news">
+			<h2 class="news__title">
+				Советы по доступности интерактивных элементов намобильных устройствах
+			</h2>
+			<footer class="news__footer"><div class="news__data">
+				<time class="news__date" datetime="2016-04-02 19:00">4 февраля</time>
+				<span class="news__author">Андрей Ситник</span>
+				</div><img class="news__avatar" src="img/news1.png" srcset="img/news1@2x.png 2x" />
+			</footer>
+		</article>
+		<article class="main__news news">
+			<h2 class="news__title">
+				Что нового в JavaScript 2019
+			</h2>
+			<footer class="news__footer"><div class="news__data">
+				<time class="news__date" datetime="2019-03-04 19:00">3 апреля</time>
+				<span class="news__author">Девид Нил</span>
+				</div><img class="news__avatar" src="img/news2.png" srcset="img/news2@2x.png 2x" />
+			</footer>
+		</article>
+		<article class="main__news news">
+			<h2 class="news__title">
+				Доступные SVG-иконки с инлайновыми спрайтами
+			</h2>
+			<footer class="news__footer"><div class="news__data">
+				<time class="news__date" datetime="2015-05-16 19:00">16 мая</time>
+				<span class="news__author">иван петров</span>
+				</div><img class="news__avatar" src="img/news3.png" srcset="img/news3@2x.png 2x" />
+			</footer>
+		</article>
+		<article class="main__news news">
+			<h2 class="news__title">
+				JavaScript: топ тем и фреймворков для изучения в 2019 году
+			</h2>
+			<footer class="news__footer"><div class="news__data">
+				<time class="news__date" datetime="2015-08-03 19:00">8 марта</time>
+				<span class="news__author">иван козлов</span>
+				</div><img class="news__avatar" src="img/news4.png" srcset="img/news4@2x.png 2x" />
+			</footer>
+		</article>
+	</main>
+	<script>
+		let button = document.querySelector('.buttonMenu');
+		let menu = document.querySelector('.menu');
+		let scroll1 = document.querySelector('.info__title-1');
+		let scroll2 = document.querySelector('.info__title-2');
+
+		button.addEventListener('click', function(e) {
+			e.preventDefault();
+			button.classList.toggle('buttonMenu-close');
+			menu.classList.toggle('header__menu-active');
+		})
+
+		function scrolling() {
+			let statusScroll1 = true;
+			let statusScroll2 = true;
+			setTimeout(function scrollOne() {
+				if (scroll1.scrollLeft<(scroll1.scrollWidth-scroll1.offsetWidth)) {
+					scroll1.scrollLeft +=10;
+					setTimeout(scrollOne, 250);
+					statusScroll1 = false;
+				} else {
+					console.log(scroll1.scrollLeft);
+					scroll1.scrollLeft = 0;
+					statusScroll1 = true;
+					if (statusScroll1&&statusScroll2) {
+						setTimeout(scrolling, 500);
+					}
+
+				}
+			}, 500);
+
+			setTimeout(function scrollTwo() {
+				if (scroll2.scrollLeft<(scroll2.scrollWidth-scroll2.offsetWidth)) {
+					scroll2.scrollLeft +=10;
+					setTimeout(scrollTwo, 250);
+					statusScroll2 = false;
+				} else {
+					console.log(scroll2.scrollLeft);
+					scroll2.scrollLeft = 0;
+					statusScroll2 = true;
+					if (statusScroll1&&statusScroll2) {
+						setTimeout(scrolling, 500);
+					}
+				}
+			}, 1000);
+		}
+		scrolling();
+	</script>
+</body>
+</html>
