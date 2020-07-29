@@ -338,7 +338,7 @@ $back-color: #F2F7FA;
 			display: block;
 			width: 100%;
 			box-sizing: border-box;
-			padding: 30px 0px;
+			padding: 4vh 0;
 		}
 		&__item {
 			width: 100%;
@@ -352,7 +352,7 @@ $back-color: #F2F7FA;
 				margin-left: 0px;
 				margin-top: auto;
 				& .menu__link {
-					padding: 30px 0;
+					padding: 4vh 0;
 				}
 			}
 		}
@@ -434,6 +434,7 @@ $back-color: #F2F7FA;
 			&-active {
 				top: 0px;
 				background-color: $back-color;
+				overflow: scroll;
 			}
 		}
 		&__burger {
