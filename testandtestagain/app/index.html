@@ -175,6 +175,7 @@
 	<script>
 		let button = document.querySelector('.buttonMenu');
 		let menu = document.querySelector('.menu');
+		let navigation = document.querySelector('.header__navigation');
 		let scroll1 = document.querySelector('.info__title-1');
 		let scroll2 = document.querySelector('.info__title-2');
 
@@ -182,6 +183,7 @@
 			e.preventDefault();
 			button.classList.toggle('buttonMenu-close');
 			menu.classList.toggle('header__menu-active');
+			navigation.classList.toggle('header__navigation-active');
 		})
 
 		function scrolling() {
