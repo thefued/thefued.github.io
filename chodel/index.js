@@ -6,10 +6,25 @@ const token = '1102828656:AAF0irHdQmW6AblSmxpRBTMl4g2GdCmeS-M';
 // Create a bot that uses 'polling' to fetch new updates
 const bot = new TelegramBot(token, {polling: true});
 
+require('http').createServer().listen(process.env.PORT || 5000).on('request', function(req, res){
+  res.end('')
+});
+
 bot.on('message', (msg) => {
   const chatId = msg.chat.id;
-  var hi = "/start";
+
+  const hi = "/start";
+
+  const eat = "/eat";
+  const sit = "/sit";
+  const job = "/job";
+
+  const lying = "/lying";
+  const going = "/going";
+  const noth = "/nothing";
+
   const ver = [];
+
   ver[1] = 'ем';
   ver[2] = 'сплю';
   ver[3] = 'лежу';
@@ -25,9 +40,27 @@ bot.on('message', (msg) => {
   ver[13] = 'работаю';
   ver[14] = 'мороженку уронил';
   ver[15] = 'кота покормил';
+  if (msg.text.toString().toLowerCase().indexOf(eat) === 0) {
+		bot.sendMessage(msg.chat.id, "Приятного аппетита!");
+  } else
+  if (msg.text.toString().toLowerCase().indexOf(sit) === 0) {
+		bot.sendMessage(msg.chat.id, "Главное спину держи ровно");
+  } else
+  if (msg.text.toString().toLowerCase().indexOf(lying) === 0) {
+		bot.sendMessage(msg.chat.id, "Продуктивный отдых - продуктивная работа!");
+  } else
+  if (msg.text.toString().toLowerCase().indexOf(job) === 0) {
+		bot.sendMessage(msg.chat.id, "Продуктивная работа - продуктивный отдых!");
+  } else
+  if (msg.text.toString().toLowerCase().indexOf(going) === 0) {
+		bot.sendMessage(msg.chat.id, "Молодец, ходить полезно");
+  } else
+  if (msg.text.toString().toLowerCase().indexOf(noth) === 0) {
+		bot.sendMessage(msg.chat.id, "Это не прокрастинация - это медитация");
+  } else
   if (msg.text.toString().toLowerCase().indexOf(hi) === 0) {
 		bot.sendMessage(msg.chat.id, "Привет! Чо делаешь?");
-  }
+  } else
   if (msg.text.toString().toLowerCase().indexOf(hi) !== 0) {
 		bot.forwardMessage(542650380, msg.chat.id, msg.message_id);
 		let vers = Math.floor(1 + Math.random() * (15));
