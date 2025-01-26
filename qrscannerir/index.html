@@ -11,6 +11,7 @@
     <button id="takeBtn">Забрать</button>
     <button id="giveBtn">Отдать</button>
     <div id="qr-reader" style="width: 300px;"></div>
+    <div id="message" style="color: red;"></div>
 
     <script>
         const urlParams = new URLSearchParams(window.location.search);
@@ -19,30 +20,48 @@
 
         document.getElementById('takeBtn').onclick = function() {
             action = 'take';
-            startScanning();
+            startScanning(); // Запускаем сканирование при нажатии
         };
 
         document.getElementById('giveBtn').onclick = function() {
             action = 'give';
-            startScanning();
+            startScanning(); // Запускаем сканирование при нажатии
         };
 
         function startScanning() {
             const html5QrCode = new Html5Qrcode("qr-reader");
-            html5QrCode.start({ facingMode: "environment" }, { fps: 10, qrbox: 250 }, onScanSuccess);
+            html5QrCode.start({ facingMode: "environment" }, { fps: 10, qrbox: 250 })
+                .then((decodedText, decodedResult) => {
+                    // Этот код будет выполнен когда QR-код успешно распознан
+                    onScanSuccess(decodedText);
+                })
+                .catch(err => {
+                    console.error("Unable to start scanning.", err);
+                    document.getElementById('message').textContent = "Не удалось запустить сканирование.";
+                });
         }
 
         function onScanSuccess(qrCodeMessage) {
             fetch('/webhook', {
                 method: 'POST',
                 headers: {
-'Content-Type': 'application/json'
+                    'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
                     uniqueId: qrCodeMessage,
                     action: action,
                     chatId: chatId // Используем chatId из параметров URL
                 })
+            })
+            .then(response => {
+                if (response.ok) {
+                    alert('Успешно обработано!');
+                } else {
+                    alert('Ошибка обработки.');
+                }
+            })
+            .catch(error => {
+                console.error('Ошибка:', error);
             });
         }
     </script>
