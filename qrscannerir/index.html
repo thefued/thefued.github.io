@@ -30,9 +30,9 @@
 
         function startScanning() {
             const html5QrCode = new Html5Qrcode("qr-reader");
-            html5QrCode.start({ facingMode: "environment" }, { fps: 10, qrbox: 250 })
-                .then((decodedText, decodedResult) => {
-                    // Этот код будет выполнен когда QR-код успешно распознан
+            html5QrCode.start({ facingMode: "environment" }, { fps: 10, qrbox: 250 },
+                (decodedText, decodedResult) => {
+                    // Этот код будет выполнен, когда QR-код успешно распознан
                     onScanSuccess(decodedText);
                 })
                 .catch(err => {
@@ -62,6 +62,19 @@
             })
             .catch(error => {
                 console.error('Ошибка:', error);
+            });
+
+            // Остановить сканирование после успешного получения QR-кода
+            stopScanning();
+        }
+
+        function stopScanning() {
+            const html5QrCode = new Html5Qrcode("qr-reader");
+            html5QrCode.stop().then(ignore => {
+                // Остановка успешно завершена
+                console.log("Сканирование остановлено.");
+            }).catch(err => {
+                console.error("Не удалось остановить сканирование:", err);
             });
         }
     </script>
