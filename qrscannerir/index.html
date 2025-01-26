@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code Scanner</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5-qrcode/1.4.0/html5-qrcode.min.js"></script>
+</head>
+<body>
+    <h2>Сканирование предмета</h2>
+    <button id="takeBtn">Забрать</button>
+    <button id="giveBtn">Отдать</button>
+    <div id="qr-reader" style="width: 300px;"></div>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const chatId = urlParams.get('chat_id'); // Получаем chat_id из параметров URL
+        let action = '';
+
+        document.getElementById('takeBtn').onclick = function() {
+            action = 'take';
+            startScanning();
+        };
+
+        document.getElementById('giveBtn').onclick = function() {
+            action = 'give';
+            startScanning();
+        };
+
+        function startScanning() {
+            const html5QrCode = new Html5Qrcode("qr-reader");
+            html5QrCode.start({ facingMode: "environment" }, { fps: 10, qrbox: 250 }, onScanSuccess);
+        }
+
+        function onScanSuccess(qrCodeMessage) {
+            fetch('/webhook', {
+                method: 'POST',
+                headers: {
+'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    uniqueId: qrCodeMessage,
+                    action: action,
+                    chatId: chatId // Используем chatId из параметров URL
+                })
+            });
+        }
+    </script>
+</body>
+</html>
